@@ -4,6 +4,9 @@
 #include "framework.h"
 #include "Editer_Window.h"
 #include "..\\SuperFreakEngine_Source\SFApplication.h"
+
+//#pragma comment(lib, "..\\x64\\Deubg\\SuperFreakEngine_Window.lib")
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -33,6 +36,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     MyRegisterClass(hInstance);
 
     Application app;
+
     app.test();
 
     // 애플리케이션 초기화를 수행합니다:

@@ -43,6 +43,5 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		SuperFreakEngine_Source\SuperFreakEngine_Source.vcxitems*{8fb34ee1-9e28-4438-863f-8189647f40e0}*SharedItemsImports = 9
 		SuperFreakEngine_Source\SuperFreakEngine_Source.vcxitems*{a81a7f24-6ee5-4a5a-9c38-5649d8277ce2}*SharedItemsImports = 4
-		SuperFreakEngine_Source\SuperFreakEngine_Source.vcxitems*{eb42cf8a-411d-48d3-b259-e5c85136e6d8}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
