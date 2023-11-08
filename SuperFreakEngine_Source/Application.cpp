@@ -2,7 +2,6 @@
 
 
 SF::Application::Application() {
-	mSpeed = 0;
 	mHdc = nullptr;
 	mHwnd = nullptr;
 }
@@ -13,8 +12,7 @@ void SF::Application::Initialize(HWND hwnd)
 {
 	mHwnd = hwnd;
 	mHdc = GetDC(hwnd);
-	rec.SetPosition(0, 0);
-	ell.SetPosition(0, 0);
+	mon.SetPosition(0, 0);
 }
 void SF::Application::Run() 
 {
@@ -24,8 +22,7 @@ void SF::Application::Run()
 }
 void SF::Application::Update() 
 {
-	rec.Update();
-	ell.Update();
+	mon.Update();
 }
 void SF::Application::LateUpdate() 
 {
@@ -33,6 +30,5 @@ void SF::Application::LateUpdate()
 }
 void SF::Application::Render() 
 {
-	rec.Render(mHdc);
-	ell.Render(mHdc);
+	mon.Render(mHdc);
 }
