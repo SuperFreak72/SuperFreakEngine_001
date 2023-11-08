@@ -16,8 +16,8 @@ namespace SF {
 		HWND mHwnd;
 		HDC mHdc;
 		float mSpeed;
-		float mX;
-		float mY;
+		GameObject1 rec;
+		GameObject2 ell;
 	};
 }
 
