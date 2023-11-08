@@ -50,11 +50,12 @@ void SF::Application::Render()
 
 	HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
 	HPEN oldPen = (HPEN)SelectObject(mHdc, redPen);
-	SelectObject(mHdc, oldPen);
+
 
 	Rectangle(mHdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
 
 	SelectObject(mHdc, oldBrush); // 흰색브러쉬 복원
+	SelectObject(mHdc, oldPen); // 검정선 복원
 	DeleteObject(blueBrush); // 파랑 삭제
-	DeleteObject(redPen);
+	DeleteObject(redPen); //빨강 삭제
 }
