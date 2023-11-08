@@ -48,8 +48,13 @@ void SF::Application::Render()
 	HBRUSH blueBrush = CreateSolidBrush(RGB(0,0,255));
 	HBRUSH oldBrush = (HBRUSH)SelectObject(mHdc, blueBrush);
 
+	HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+	HPEN oldPen = (HPEN)SelectObject(mHdc, redPen);
+	SelectObject(mHdc, oldPen);
+
 	Rectangle(mHdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
 
-	//SelectObject(mHdc, oldBrush); // 흰색브러쉬 복원
-	//DeleteObject(blueBrush); // 파랑 삭제
+	SelectObject(mHdc, oldBrush); // 흰색브러쉬 복원
+	DeleteObject(blueBrush); // 파랑 삭제
+	DeleteObject(redPen);
 }
