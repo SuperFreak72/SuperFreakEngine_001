@@ -1,5 +1,6 @@
 #include "CommonInclude.h"
 
+//사각형 생성 ( 방향키 움직임 )
 void SF::GameObject1::Update()
 {
 	if (GetAsyncKeyState(VK_LEFT)) {
@@ -40,7 +41,7 @@ void SF::GameObject1::SetPosition(float x, float y)
 
 
 /*################################################*/
-
+// 원 생성 ( WASD 움직임 )
 void SF::GameObject2::Update()
 {
 	if (GetAsyncKeyState('A')) {
