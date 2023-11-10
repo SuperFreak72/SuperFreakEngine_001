@@ -1,5 +1,7 @@
 #pragma once
 #include <Windows.h>
+#include <iostream>
+#include <algorithm>
 #include <vector>
 #include <stdlib.h>
 #include <time.h>

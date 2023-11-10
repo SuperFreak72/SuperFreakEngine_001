@@ -1,19 +1,23 @@
 #include "CommonInclude.h"
+#include "SFInput.h"
 
-//사각형 생성 ( 방향키 움직임 )
+//사각형 생성 ( 방aad향키 움직임 )
 void SF::GameObject1::Update()
 {
-	if (GetAsyncKeyState(VK_LEFT)) {
+	if (Input::GetKey(eKeyCode::A))
+	{
 		mX -= 0.01f;
 	}
-	if (GetAsyncKeyState(VK_RIGHT)) {
+
+	if (Input::GetKey(eKeyCode::D))
+	{
 		mX += 0.01f;
+		//
 	}
-	if (GetAsyncKeyState(VK_UP)) {
+
+	if (Input::GetKey(eKeyCode::Up))
+	{
 		mY -= 0.01f;
-	}
-	if (GetAsyncKeyState(VK_DOWN)) {
-		mY += 0.01f;
 	}
 }
 void SF::GameObject1::LateUpdate()

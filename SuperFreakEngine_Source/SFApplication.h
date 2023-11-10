@@ -15,7 +15,7 @@ namespace SF {
 	private:
 		HWND mHwnd;
 		HDC mHdc;
-		Monster mon;
+		GameObject1 ob1;
 	};
 }
 

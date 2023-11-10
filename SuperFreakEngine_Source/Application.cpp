@@ -1,4 +1,5 @@
 #include "CommonInclude.h"
+#include "SFInput.h"
 
 
 SF::Application::Application() {
@@ -12,7 +13,8 @@ void SF::Application::Initialize(HWND hwnd)
 {
 	mHwnd = hwnd;
 	mHdc = GetDC(hwnd);
-	mon.SetPosition(0, 0);
+	ob1.SetPosition(0, 0);
+	Input::Initailize();
 }
 void SF::Application::Run() 
 {
@@ -22,7 +24,8 @@ void SF::Application::Run()
 }
 void SF::Application::Update() 
 {
-	mon.Update();
+	Input::Update();
+	ob1.Update();
 }
 void SF::Application::LateUpdate() 
 {
@@ -30,5 +33,5 @@ void SF::Application::LateUpdate()
 }
 void SF::Application::Render() 
 {
-	mon.Render(mHdc);
+	ob1.Render(mHdc);
 }
