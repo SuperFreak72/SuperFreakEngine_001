@@ -1,23 +1,30 @@
 #include "CommonInclude.h"
 #include "SFInput.h"
+#include "SFTime.h"
 
 //사각형 생성 ( 방aad향키 움직임 )
 void SF::GameObject1::Update()
 {
+	const int speed = 100.0f;
 	if (Input::GetKey(eKeyCode::A))
 	{
-		mX -= 0.01f;
+		mX -= speed * Time::DeltaTime();
 	}
 
 	if (Input::GetKey(eKeyCode::D))
 	{
-		mX += 0.01f;
-		//
+		mX += speed * Time::DeltaTime();
+		
 	}
 
-	if (Input::GetKey(eKeyCode::Up))
+	if (Input::GetKey(eKeyCode::W))
 	{
-		mY -= 0.01f;
+		mY -= speed * Time::DeltaTime();
+	}
+
+	if (Input::GetKey(eKeyCode::S))
+	{
+		mY += speed * Time::DeltaTime();
 	}
 }
 void SF::GameObject1::LateUpdate()
@@ -32,10 +39,10 @@ void SF::GameObject1::Render(HDC hdc)
 
 
 	Rectangle(hdc, 100.0f + mX, 100.0f + mY, 200.0f + mX, 200.0f + mY);
-
 	SelectObject(hdc, oldBrush); // 흰색브러쉬 복원
 	DeleteObject(blueBrush); // 파랑 삭제
 	DeleteObject(redPen); //빨강 삭제
+	
 }
 void SF::GameObject1::SetPosition(float x, float y)
 {
@@ -48,18 +55,6 @@ void SF::GameObject1::SetPosition(float x, float y)
 // 원 생성 ( WASD 움직임 )
 void SF::GameObject2::Update()
 {
-	if (GetAsyncKeyState('A')) {
-		mX -= 0.01f;
-	}
-	if (GetAsyncKeyState('D')) {
-		mX += 0.01f;
-	}
-	if (GetAsyncKeyState('W')) {
-		mY -= 0.01f;
-	}
-	if (GetAsyncKeyState('S')) {
-		mY += 0.01f;
-	}
 }
 void SF::GameObject2::LateUpdate()
 {

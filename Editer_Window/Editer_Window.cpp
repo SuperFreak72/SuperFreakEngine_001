@@ -123,14 +123,13 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr);
 
-   app.Initialize(hWnd);
+   app.Initialize(hWnd, 1600, 900);
 
    if (!hWnd)
    {
       return FALSE;
    }
 
-   ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
    return TRUE;

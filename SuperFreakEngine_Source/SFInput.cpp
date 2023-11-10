@@ -12,17 +12,14 @@ namespace SF {
 		VK_LEFT, VK_RIGHT, VK_DOWN, VK_UP,
 	};
 
-	void Input::Initailize()
-	{
+	void Input::Initailize() {
 		CreateKeys();
 	}
 
-	void Input::Update()
-	{
+	void Input::Update() {
 		UpdateKeys();
 	}
-	void Input::CreateKeys()
-	{
+	void Input::CreateKeys() {
 		for (size_t i = 0; i < (UINT)eKeyCode::End; i++)
 		{
 			Key key = {};
@@ -34,9 +31,7 @@ namespace SF {
 		}
 	}
 
-	void Input::UpdateKeys()
-	{
-		
+	void Input::UpdateKeys() {
 		std::for_each(mKeys.begin(), mKeys.end(),
 			[](Key& key) -> void
 			{
@@ -44,8 +39,7 @@ namespace SF {
 			});
 	}
 
-	void Input::UpdateKey(Input::Key& key)
-	{
+	void Input::UpdateKey(Input::Key& key) {
 		if (IsKeyDown(key.keyCode))
 		{
 			UpdateKeyDown(key);
@@ -56,8 +50,7 @@ namespace SF {
 		}
 	}
 
-	bool Input::IsKeyDown(eKeyCode code)
-	{
+	bool Input::IsKeyDown(eKeyCode code) {
 		return GetAsyncKeyState(ASCII[(UINT)code]) & 0x8000;
 	}
 
