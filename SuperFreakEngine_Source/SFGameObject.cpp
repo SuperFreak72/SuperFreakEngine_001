@@ -1,8 +1,8 @@
-#include "CommonInclude.h"
 #include "SFInput.h"
 #include "SFTime.h"
+#include "Bullet.h"
 
-//사각형 생성 ( 방aad향키 움직임 )
+//사각형 생성 ( 방향키 움직임 )
 void SF::GameObject1::Update()
 {
 	const int speed = 100.0f;
@@ -26,9 +26,19 @@ void SF::GameObject1::Update()
 	{
 		mY += speed * Time::DeltaTime();
 	}
+
+	if (Input::GetKey(eKeyCode::T)) {
+		b = new Bullet();
+		b->GetPlayerPos(100.0f + mX, 100.0f + mY, 200.0f + mX, 200.0f + mY);
+		flag = 1;
+	}
+
+	if (flag == 1)
+		b->Update();
 }
 void SF::GameObject1::LateUpdate()
 {
+
 }
 void SF::GameObject1::Render(HDC hdc)
 {
@@ -42,6 +52,14 @@ void SF::GameObject1::Render(HDC hdc)
 	SelectObject(hdc, oldBrush); // 흰색브러쉬 복원
 	DeleteObject(blueBrush); // 파랑 삭제
 	DeleteObject(redPen); //빨강 삭제
+
+	if (flag == 1) {
+		b->Render(hdc);
+		if (b->ShowBulletPosY() < 0.0f) {
+			delete b;
+			flag = 0;
+		}
+	}
 	
 }
 void SF::GameObject1::SetPosition(float x, float y)

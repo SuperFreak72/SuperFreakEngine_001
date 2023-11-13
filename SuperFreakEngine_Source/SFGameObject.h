@@ -1,5 +1,8 @@
 #pragma once
 #include "CommonInclude.h"
+#include "SFInput.h"
+#include "SFTime.h"
+#include "Bullet.h"
 
 namespace SF {
 	class GameObject1 {
@@ -13,6 +16,8 @@ namespace SF {
 	private:
 		float mX;
 		float mY;
+		int flag = 0;
+		Bullet* b = nullptr;
 	};
 
 	class GameObject2 {
