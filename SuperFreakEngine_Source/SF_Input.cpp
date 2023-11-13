@@ -1,4 +1,4 @@
-#include "SFInput.h"
+#include "SF_Input.h"
 #include "CommonInclude.h"
 
 namespace SF {

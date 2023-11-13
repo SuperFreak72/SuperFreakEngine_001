@@ -3,16 +3,15 @@
 
 #include "framework.h"
 #include "Editer_Window.h"
-#include "..\\SuperFreakEngine_Source\SFApplication.h"
-
-//#pragma comment(lib, "..\\x64\\Deubg\\SuperFreakEngine_Window.lib")
+#include "..\\SuperFreakEngine_Source\SF_Application.h"
+#include "..\\SuperFreakEngine_Window\\SF_LoadScene.h"
 
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
-WCHAR szWindowClass[MAX_LOADSTRING];     // 기본 창 클래스 이름입니다.
+WCHAR szWindowClass[MAX_LOADSTRING];     // 기본 창 클래스 이름입니다. 
 SF::Application app;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
@@ -62,22 +61,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             app.Run();
         }
     }
-
-
-    // 기본 메시지 루프입니다:
-    /*while (GetMessage(&msg, nullptr, 0, 0))
-    {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-        }
-    }
-    */
     return (int) msg.wParam;
 }
-
-
 
 //
 //  함수: MyRegisterClass()
@@ -120,17 +105,23 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr);
+   const UINT width = 1600;
+   const UINT height = 900;
 
-   app.Initialize(hWnd, 1600, 900);
+   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+      CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+
+   app.Initialize(hWnd, width, height);
 
    if (!hWnd)
    {
       return FALSE;
    }
 
+   ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   SF::LoadScenes();
 
    return TRUE;
 }

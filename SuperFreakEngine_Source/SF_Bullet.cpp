@@ -1,6 +1,6 @@
 #include "CommonInclude.h"
-#include "Bullet.h"
-#include "SFTime.h"
+#include "SF_Bullet.h"
+#include "SF_Time.h"
 
 
 SF::Bullet::Bullet() {

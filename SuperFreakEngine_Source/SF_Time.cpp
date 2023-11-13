@@ -1,4 +1,4 @@
-#include "SFTime.h"
+#include "SF_Time.h"
 
 namespace SF {
 	LARGE_INTEGER Time::CpuFrequency = {};

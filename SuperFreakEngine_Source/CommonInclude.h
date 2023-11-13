@@ -1,9 +1,10 @@
 #pragma once
 #include <Windows.h>
 #include <iostream>
-#include <algorithm>
-#include <vector>
 #include <stdlib.h>
 #include <time.h>
-#include "SFGameObject.h"
-#include "SFApplication.h" 
+
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <map>

@@ -14,18 +14,24 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Bullet.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SFApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SFGameObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SFInput.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SFTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Application.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Bullet.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Entity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_GameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Input.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Scene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_SceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Time.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Bullet.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SFGameObject.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SFInput.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SFTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Application.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Bullet.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Entity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_GameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Input.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Scene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_SceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Time.cpp" />
   </ItemGroup>
 </Project>
