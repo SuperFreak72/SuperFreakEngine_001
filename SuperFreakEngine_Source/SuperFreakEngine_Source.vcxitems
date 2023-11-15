@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Dummy.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Application.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Bullet.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Entity.h" />
