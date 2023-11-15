@@ -1,5 +1,8 @@
 #include "SF_PlayScene.h"
 #include "SF_GameObject.h"
+#include "SF_Player.h"
+#include "SF_Transform.h"
+#include "SF_SpriteRenderer.h"
 
 
 namespace SF {
@@ -8,11 +11,16 @@ namespace SF {
 	PlayScene::~PlayScene() { }
 
 	void PlayScene::Initialize() {
-		for (int i = 0; i < 100; i++) {
-			GameObject* obj = new GameObject();
-			obj->SetPosition(rand() % 1600, rand() % 900);
-			AddGameObject(obj);
-		}
+		Player* pl = new Player();
+		Transform* tr
+			= pl->AddComponent<Transform>();
+		tr->SetPos(800, 450);
+		tr->SetName(L"TransformC");
+		SpriteRenderer* sr
+			= pl->AddComponent<SpriteRenderer>();
+		sr->SetName(L"SpriteRendererC");
+
+		AddGameObject(pl);
 	}
 
 	void PlayScene::Update(){

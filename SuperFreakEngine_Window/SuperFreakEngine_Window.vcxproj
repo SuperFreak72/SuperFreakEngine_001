@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SF_LoadScene.h" />
+    <ClInclude Include="SF_Player.h" />
     <ClInclude Include="SF_PlayScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SF_Player.cpp" />
     <ClCompile Include="SF_PlayScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

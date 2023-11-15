@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Component.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Transform.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_GameObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Application.cpp">
+      <Filter>Basic</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Bullet.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Entity.cpp">
+      <Filter>Basic</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Scene.cpp">
+      <Filter>Basic</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_SceneManager.cpp">
+      <Filter>Basic</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Time.cpp">
+      <Filter>Assistants</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Input.cpp">
+      <Filter>Assistants</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Transform.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_GameObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Application.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Bullet.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Dummy.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Entity.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Scene.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_SceneManager.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Time.h">
+      <Filter>Assistants</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Input.h">
+      <Filter>Assistants</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Component">
+      <UniqueIdentifier>{e22b198a-f244-47a0-ab2e-d8dcb155a5ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{68e194bf-dd33-4389-af4d-f3dffca21bc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Basic">
+      <UniqueIdentifier>{5262d5a9-0d7a-4974-8634-6c2d2a7ab165}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assistants">
+      <UniqueIdentifier>{61c22c46-948b-407f-b6d8-fac77cf62afa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,7 +1,7 @@
 #include "SF_Application.h"
+#include "SF_SceneManager.h"
 #include "SF_Input.h"
 #include "SF_Time.h"
-#include "SF_SceneManager.h"
 
 namespace SF {
 	Application::Application() {

@@ -18,21 +18,27 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Dummy.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Application.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Bullet.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Entity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Scene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_SceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Time.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Application.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Bullet.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Component.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Entity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Scene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_SceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Time.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Transform.cpp" />
   </ItemGroup>
 </Project>
