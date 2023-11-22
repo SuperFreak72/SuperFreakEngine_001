@@ -20,8 +20,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Bullet.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Entity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Enums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Input.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Layer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Math.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Object.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Scene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.h" />
@@ -35,6 +39,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Entity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Input.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Layer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Math.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Scene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.cpp" />

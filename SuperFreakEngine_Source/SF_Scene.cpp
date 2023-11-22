@@ -1,32 +1,61 @@
 #include "SF_Scene.h"
 
 namespace SF {
-	Scene::Scene() :mGameObjects{} { }
+	Scene::Scene() :mLayers{} {
+		createLayers();
+	}
 
 	Scene::~Scene() { }
 
 	void Scene::Initialize() {
+		for (Layer* layer : mLayers) {
+			if (layer == nullptr)
+				continue;
+
+			layer->Initialize();
+		}
 	}
 
 	void Scene::Update() {
-		for (GameObject* gameObj : mGameObjects) {
-			gameObj->Update();
+		for (Layer* layer : mLayers) {
+			if (layer == nullptr)
+				continue;
+
+			layer->Update();
 		}
 	}
 
 	void Scene::LateUpdate() {
-		for (GameObject* gameObj : mGameObjects) {
-			gameObj->LateUpdate();
+		for (Layer* layer : mLayers) {
+			if (layer == nullptr)
+				continue;
+
+			layer->LateUpdate();
 		}
 	}
 
 	void Scene::Render(HDC hdc) {
-		for (GameObject* gameObj : mGameObjects) {
-			gameObj->Render(hdc);
+		for (Layer* layer : mLayers) {
+			if (layer == nullptr)
+				continue;
+
+			layer->Render(hdc);
 		}
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject) {
-		mGameObjects.push_back(gameObject);
+	void Scene::AddGameObject(GameObject* gameObject, const enums::eLayerType type) {
+		mLayers[(UINT)type]->AddGameObject(gameObject);
 	}
+
+	void Scene::createLayers() {
+		mLayers.resize((UINT)enums::eLayerType::Max);
+
+		for (size_t i = 0; i < (UINT)enums::eLayerType::Max; i++) {
+			mLayers[i] = new Layer();
+		}
+	}
+
+	void Scene::OnEnter() { }
+
+	void Scene::OnExit() { }
 }

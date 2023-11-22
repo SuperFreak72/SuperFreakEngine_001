@@ -1,9 +1,12 @@
 #include "SF_GameObject.h"
 #include "SF_Input.h"
 #include "SF_Time.h"
+#include "SF_Transform.h"
 
 namespace SF {
-	GameObject::GameObject() { }
+	GameObject::GameObject() {
+		initializeTransform();
+	}
 	GameObject::~GameObject() {
 		for (Component* comp : mComponents) {
 			delete comp;
@@ -32,6 +35,10 @@ namespace SF {
 		for (Component* comp : mComponents) {
 			comp->Render(hdc);
 		}
+	}
+
+	void GameObject::initializeTransform(){
+		AddComponent<Transform>();
 	}
 }
 

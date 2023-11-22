@@ -1,6 +1,7 @@
 #pragma once
-#include "CommonInclude.h"
+#include "SF_Entity.h"
 #include "SF_Component.h"
+
 namespace SF {
 	class SpriteRenderer : public Component {
 	public:
@@ -11,8 +12,12 @@ namespace SF {
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
-	private:
 
+		void ImageLoad(const std::wstring& path);
+	private:
+		Gdiplus::Image* mImage;
+		UINT mWidth;
+		UINT mHeight;
 	};
 }
 

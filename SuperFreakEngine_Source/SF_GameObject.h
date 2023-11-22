@@ -17,6 +17,7 @@ namespace SF {
 		template <typename T>
 		T* AddComponent() {
 			T* comp = new T();
+			comp->Initialize();
 			comp->SetOwner(this);
 			mComponents.push_back(comp);
 
@@ -34,6 +35,8 @@ namespace SF {
 
 			return component;
 		}
+	private:
+		void initializeTransform();
 	private:
 		std::vector<Component*> mComponents;
 	};

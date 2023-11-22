@@ -34,6 +34,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Input.cpp">
       <Filter>Assistants</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Math.cpp">
+      <Filter>Basic</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Layer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h">
@@ -75,6 +81,18 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Input.h">
       <Filter>Assistants</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Math.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Layer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Enums.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Object.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -88,6 +106,9 @@
     </Filter>
     <Filter Include="Assistants">
       <UniqueIdentifier>{61c22c46-948b-407f-b6d8-fac77cf62afa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{a88378c1-3dc4-4e1e-b2d0-a3a082f4d32b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

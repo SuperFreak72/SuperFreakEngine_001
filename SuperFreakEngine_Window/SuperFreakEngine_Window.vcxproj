@@ -19,13 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SF_HomeScene.h" />
     <ClInclude Include="SF_LoadScene.h" />
     <ClInclude Include="SF_Player.h" />
     <ClInclude Include="SF_PlayScene.h" />
+    <ClInclude Include="SF_VillageScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SF_HomeScene.cpp" />
     <ClCompile Include="SF_Player.cpp" />
     <ClCompile Include="SF_PlayScene.cpp" />
+    <ClCompile Include="SF_VillageScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

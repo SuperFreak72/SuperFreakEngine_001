@@ -2,11 +2,32 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="SF_LoadScene.h" />
-    <ClInclude Include="SF_PlayScene.h" />
     <ClInclude Include="SF_Player.h" />
+    <ClInclude Include="SF_HomeScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SF_PlayScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SF_VillageScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SF_PlayScene.cpp" />
     <ClCompile Include="SF_Player.cpp" />
+    <ClCompile Include="SF_HomeScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SF_PlayScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SF_VillageScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{fa70e621-0516-4946-9516-9b4409b05ef3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

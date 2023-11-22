@@ -2,10 +2,10 @@
 #include "..\\SuperFreakEngine_Source\\SF_Scene.h"
 
 namespace SF {
-	class PlayScene : public Scene{
+	class HomeScene : public Scene {
 	public:
-		PlayScene();
-		~PlayScene();
+		HomeScene();
+		~HomeScene();
 
 		void Initialize() override;
 		void Update() override;
@@ -14,7 +14,6 @@ namespace SF {
 
 		void OnEnter() override;
 		void OnExit()  override;
-
 	private:
 		class Player* bg;
 	};

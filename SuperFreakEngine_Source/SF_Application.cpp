@@ -9,8 +9,8 @@ namespace SF {
 		mHwnd = nullptr;
 		mWidth = 0;
 		mHeight = 0;
-		mBackHdc = NULL;
-		mBackBuffer = NULL;
+		mBackHdc = 0;
+		mBackBitmap = NULL;
 	}
 
 	Application::~Application() { }
@@ -20,7 +20,6 @@ namespace SF {
 		createBuffer(width, height);
 		initializeEtc();
 
-		
 		SceneManager::Initialize();
 	}
 
@@ -29,13 +28,18 @@ namespace SF {
 		LateUpdate();
 		Render();
 	}
+
 	void Application::Update() {
 		Input::Update();
 		Time::Update();
 
 		SceneManager::Update();
 	}
-	void Application::LateUpdate() { }
+
+	void Application::LateUpdate() {
+		SceneManager::LateUpdate();
+	}
+
 	void Application::Render() {
 		clearRenderTarget();
 
@@ -46,35 +50,35 @@ namespace SF {
 	}
 
 	void Application::clearRenderTarget() {
-		Rectangle(mBackHdc, -1, -1, 1601, 901);
+		Rectangle(mBackHdc, -1, -1, mWidth, mHeight);
 	}
 
 	void Application::copyRenderTarget(HDC source, HDC dest) {
-		BitBlt(mHdc, 0, 0, mWidth, mHeight,
-			mBackHdc, 0, 0, SRCCOPY);
+		BitBlt(dest, 0, 0, mWidth, mHeight,
+			source, 0, 0, SRCCOPY);
 	}
 
 	void Application::adjustWindowRect(HWND hwnd, UINT width, UINT height) {
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 
-		RECT rect = { 0,0,width,height };
+		RECT rect = { 0, 0, width, height };
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
 		mWidth = rect.right - rect.left;
 		mHeight = rect.bottom - rect.top;
 
-		SetWindowPos(mHwnd, nullptr, 0, 0, rect.right - rect.left, rect.bottom - rect.top, 0);
-		ShowWindow(mHwnd, true);
+		SetWindowPos(hwnd, nullptr, 0, 0, mWidth, mHeight, 0);
+		ShowWindow(hwnd, true);
 	}
 
 	void Application::createBuffer(UINT width, UINT height) {
 		//윈도우 해상도에 맞는 백버퍼 생성
-		mBackBuffer = CreateCompatibleBitmap(mHdc, width, height);
+		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
 
 		//백버퍼를 가르킬 DC생성
 		mBackHdc = CreateCompatibleDC(mHdc);
-		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBuffer);
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
 		DeleteObject(oldBitmap);
 	}
 
