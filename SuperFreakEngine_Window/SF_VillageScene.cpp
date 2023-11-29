@@ -17,11 +17,11 @@ namespace SF {
 	VillageScene::~VillageScene() { }
 
 	void VillageScene::Initialize() {
-		bg = Object::Instantiate<Player>
+		/*bg = Object::Instantiate<Player>
 			(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		sr->ImageLoad(L"C:\\Users\\pokej\\Desktop\\WinAPIProject\\Editer_Window\\\Resources\\VillageEnvironment.png");
-
+		*/
 		Scene::Initialize();
 	}
 	void VillageScene::Update() {

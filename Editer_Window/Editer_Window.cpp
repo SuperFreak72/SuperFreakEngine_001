@@ -5,7 +5,13 @@
 #include "Editer_Window.h"
 
 #include "..\\SuperFreakEngine_Source\SF_Application.h"
+#include "..\\SuperFreakEngine_Window\\SF_LoadResources.h"
 #include "..\\SuperFreakEngine_Window\\SF_LoadScene.h"
+
+
+ULONG_PTR gpToken;
+SF::Application app;
+Gdiplus::GdiplusStartupInput gpsi;
 
 #define MAX_LOADSTRING 100
 
@@ -14,9 +20,7 @@ HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];     // 기본 창 클래스 이름입니다. 
 
-ULONG_PTR gpToken;
-SF::Application app;
-Gdiplus::GdiplusStartupInput gpsi;
+
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -130,6 +134,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
+   SF::LoadResources();
    SF::LoadScenes();
 
    return TRUE;

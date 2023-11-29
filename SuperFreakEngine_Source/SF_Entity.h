@@ -1,5 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
+#include "SF_Math.h"
+using namespace SF::math;
 
 namespace SF {
 	class Entity {

@@ -4,12 +4,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Component.cpp">
       <Filter>Component</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Transform.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_GameObject.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
@@ -20,12 +14,6 @@
       <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Entity.cpp">
-      <Filter>Basic</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Scene.cpp">
-      <Filter>Basic</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SF_SceneManager.cpp">
       <Filter>Basic</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Time.cpp">
@@ -40,15 +28,48 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Layer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Resource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Resources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Texture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_SceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_PlayerScript.cpp">
+      <Filter>Component\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Transform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.cpp">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Camera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Renderer.cpp">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Script.cpp">
+      <Filter>Component\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Animation.cpp">
+      <Filter>Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Animator.cpp">
+      <Filter>Component\Animator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Transform.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.h">
       <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_GameObject.h">
@@ -69,12 +90,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Entity.h">
       <Filter>Basic</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Scene.h">
-      <Filter>Basic</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SF_SceneManager.h">
-      <Filter>Basic</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Time.h">
       <Filter>Assistants</Filter>
     </ClInclude>
@@ -93,6 +108,45 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Object.h">
       <Filter>Basic</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Resource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Resources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Texture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_SceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_PlayerScript.h">
+      <Filter>Component\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Transform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.h">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Camera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Renderer.h">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Script.h">
+      <Filter>Component\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Animation.h">
+      <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Animator.h">
+      <Filter>Component\Animator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -109,6 +163,30 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{a88378c1-3dc4-4e1e-b2d0-a3a082f4d32b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{b9cf3b15-c380-4b3d-a264-d62b3d6ab286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{95d239d3-2a66-4761-b994-20aed633ee89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{f97df727-b06a-4b17-9adc-01277c75e00a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Scripts">
+      <UniqueIdentifier>{b70d729d-5787-4e44-896a-e134e0ec092a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{c093b6ba-5c99-431f-b15c-60bb5c662b91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\SpriteRenderer">
+      <UniqueIdentifier>{388fbbb9-bca0-4c54-8d0d-a3babedd6e9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{f0a560cb-8350-4f9b-bc3b-6fac8a1d7505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animator">
+      <UniqueIdentifier>{4b637530-d0c3-4e40-881a-a154d4bf13a6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

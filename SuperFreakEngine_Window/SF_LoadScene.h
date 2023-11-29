@@ -6,6 +6,7 @@
 #include "SF_VillageScene.h"
 
 namespace SF {
+
 	void LoadScenes() {
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 		SceneManager::CreateScene<VillageScene>(L"VillageScene");

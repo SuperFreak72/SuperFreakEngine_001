@@ -1,6 +1,7 @@
 #pragma once
 #include "SF_Entity.h"
 #include "SF_Component.h"
+#include "SF_Texture.h"
 
 namespace SF {
 	class SpriteRenderer : public Component {
@@ -13,11 +14,15 @@ namespace SF {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void ImageLoad(const std::wstring& path);
+		void SetTexture(Graphics::Texture* texture) {
+			mTexture = texture;
+		}
+		void SetSize(math::Vector2 size) {
+			mSize = size;
+		}
 	private:
-		Gdiplus::Image* mImage;
-		UINT mWidth;
-		UINT mHeight;
+		Graphics::Texture* mTexture;
+		math::Vector2 mSize;
 	};
 }
 

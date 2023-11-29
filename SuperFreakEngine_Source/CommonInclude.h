@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <string>
 #include <map>
+#include <assert.h>
 
 #include "SF_Math.h"
 

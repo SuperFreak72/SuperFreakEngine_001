@@ -1,8 +1,9 @@
 #include "SF_Component.h"
 
 namespace SF {
-	Component::Component() {
-	}
+	Component::Component(enums::eComponentType type)
+	: mType(type)
+	{}
 	Component::~Component() {
 	}
 	void SF::Component::Initialize() {

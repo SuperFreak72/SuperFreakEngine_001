@@ -6,6 +6,7 @@
 #include "SF_Input.h"
 #include "SF_SceneManager.h"
 #include "SF_Object.h"
+#include "SF_Resources.h"
 #include "SF_HomeScene.h"
 #include "SF_VillageScene.h"
 
@@ -16,10 +17,11 @@ namespace SF {
 
 	void PlayScene::Initialize() {
 		bg = Object::Instantiate<Player>
-			(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
+			(enums::eLayerType::BackGround, Vector2(0.0f, 0.0f));
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		sr->ImageLoad(L"C:\\Users\\pokej\\Desktop\\WinAPIProject\\Editer_Window\\\Resources\\background_118004.png");
-		
+
+		Graphics::Texture* bg = Resources::Find<Graphics::Texture>(L"BG");
+		sr->SetTexture(bg);
 		Scene::Initialize();
 	}
 	void PlayScene::Update(){
