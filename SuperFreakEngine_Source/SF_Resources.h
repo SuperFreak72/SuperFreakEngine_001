@@ -4,9 +4,6 @@
 namespace SF {
 	class Resources {
 	public:
-		Resources();
-		~Resources();
-
 		template <typename T>
 		static T* Find(const std::wstring& key) {
 			auto iter = mResources.find(key);
@@ -31,6 +28,15 @@ namespace SF {
 			mResources.insert(std::make_pair(key, resource));
 
 			return resource;
+		}
+
+		static void Release()
+		{
+			for (auto& iter : mResources)
+			{
+				delete iter.second;
+				iter.second = nullptr;
+			}
 		}
 	private:
 		static std::map<std::wstring, Resource*> mResources;

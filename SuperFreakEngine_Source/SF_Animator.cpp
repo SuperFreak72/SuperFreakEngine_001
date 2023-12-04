@@ -57,4 +57,28 @@ namespace SF {
 		mActiveAnimation->Reset();
 		mb_Loop = loop;
 	}
+
+	Animator::Events* Animator::FindEvents(const std::wstring& name)
+	{
+		auto iter = mEvents.find(name);
+		if (iter == mEvents.end())
+			return nullptr;
+
+		return iter->second;
+	}
+	std::function<void()>& Animator::GetStartEvent(const std::wstring& name)
+	{
+		Events* events = FindEvents(name);
+		return events->startEvent.mEvent;
+	}
+	std::function<void()>& Animator::GetCompleteEvent(const std::wstring& name)
+	{
+		Events* events = FindEvents(name);
+		return events->completeEvent.mEvent;
+	}
+	std::function<void()>& Animator::GetEndEvent(const std::wstring& name)
+	{
+		Events* events = FindEvents(name);
+		return events->endEvent.mEvent;
+	}
 }

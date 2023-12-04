@@ -24,6 +24,7 @@ namespace SF {
 		~Animation();
 
 		HRESULT Load(const std::wstring& path) override;
+
 		void Update();
 		void Render(HDC hdc);
 
@@ -36,6 +37,7 @@ namespace SF {
 			, float duration);
 
 		void Reset();
+
 		bool IsComplete() {
 			return mb_Complete;
 		}
@@ -46,6 +48,7 @@ namespace SF {
 	private:
 		class Animator* mAnimator;
 		Graphics::Texture* mTexture;
+
 		std::vector<Sprite> mAnimationSheet;
 		int mIndex;
 		float mTime;

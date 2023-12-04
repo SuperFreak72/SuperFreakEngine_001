@@ -24,6 +24,9 @@ namespace SF {
 		UINT GetHeight() {
 			return mHeight;
 		}
+		HWND GetHwnd() {
+			return mHwnd;
+		}
 
 	private:
 		void clearRenderTarget();

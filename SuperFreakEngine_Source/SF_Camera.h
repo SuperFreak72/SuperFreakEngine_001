@@ -7,7 +7,7 @@ namespace SF {
 	class Camera : public Component{
 	public:
 		 Vector2 CaluatePosition(Vector2 pos) {
-			return pos - mDistance;
+			 return pos;
 		};
 
 		Camera();

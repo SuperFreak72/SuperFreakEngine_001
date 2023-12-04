@@ -17,6 +17,7 @@ namespace SF
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M,
 		Left, Right, Down, Up, Space,
+		LButton, MButton, RButton,
 		End,
 	};
 
@@ -36,6 +37,7 @@ namespace SF
 		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; }
 		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
 		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
+		static math::Vector2 GetMousePosition() { return mMousePosition; }
 
 	private:
 		static void CreateKeys();
@@ -44,9 +46,12 @@ namespace SF
 		static bool IsKeyDown(eKeyCode code);
 		static void UpdateKeyDown(Input::Key& key);
 		static void UpdateKeyUp(Input::Key& key);
+		static void getMousePositionByWindow();
+		static void clearKeys();
 
 	private:
 		static std::vector<Key> mKeys;
+		static math::Vector2 mMousePosition;
 	};
 }
 

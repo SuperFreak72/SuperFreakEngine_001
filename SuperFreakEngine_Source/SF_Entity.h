@@ -1,6 +1,5 @@
 #pragma once
 #include "CommonInclude.h"
-#include "SF_Math.h"
 using namespace SF::math;
 
 namespace SF {
@@ -8,6 +7,7 @@ namespace SF {
 	public:
 		Entity();
 		virtual ~Entity();
+
 		void SetName(const std::wstring& name) {
 			mName = name;
 		}

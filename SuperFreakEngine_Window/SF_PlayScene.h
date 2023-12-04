@@ -15,6 +15,7 @@ namespace SF {
 		void OnEnter() override;
 		void OnExit()  override;
 
+		void AnimationLoad();
 	private:
 		class Player* bg;
 	};

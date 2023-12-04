@@ -9,6 +9,7 @@
 #include <string>
 #include <map>
 #include <assert.h>
+#include <functional>
 
 #include "SF_Math.h"
 

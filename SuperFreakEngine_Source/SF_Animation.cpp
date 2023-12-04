@@ -43,6 +43,8 @@ namespace SF {
 		GameObject* gameObj = mAnimator->GetOwner();
 		Transform* tr = gameObj->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		float rot = tr->GetRoation();
+		Vector2 scale = tr->GetScale();
 
 		if (Renderer::mainCamera)
 			pos = Renderer::mainCamera->CaluatePosition(pos);
@@ -51,7 +53,7 @@ namespace SF {
 		func.BlendOp = AC_SRC_OVER;
 		func.BlendFlags = 0;
 		func.AlphaFormat = AC_SRC_ALPHA;
-		func.SourceConstantAlpha = 125; // 0(transparent) ~ 255(Opaque)
+		func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
 		Sprite sprite = mAnimationSheet[mIndex];
 		HDC imgHdc = mTexture->GetHdc();
