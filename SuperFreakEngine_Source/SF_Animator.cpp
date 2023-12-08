@@ -32,11 +32,11 @@ namespace SF {
 		if (animation != nullptr)
 			return;
 
-		animation = new Animation();
-		animation->CreateAnimation(name, spriteSheet
-			, leftTop, size, offset, spriteLength, duration);
+			animation = new Animation();
+			animation->CreateAnimation(name, spriteSheet
+				, leftTop, size, offset, spriteLength, duration);
 
-		animation->SetAnimator(this);
+			animation->SetAnimator(this);
 
 		mAnimations.insert(std::make_pair(name, animation));
 	}

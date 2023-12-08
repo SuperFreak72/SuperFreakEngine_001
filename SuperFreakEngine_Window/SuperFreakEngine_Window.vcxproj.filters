@@ -23,6 +23,9 @@
     <ClInclude Include="SF_LoadScene.h">
       <Filter>LoadManagement</Filter>
     </ClInclude>
+    <ClInclude Include="SF_TitleScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SF_Player.cpp" />
@@ -39,6 +42,9 @@
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="SF_CrossroadScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SF_TitleScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>

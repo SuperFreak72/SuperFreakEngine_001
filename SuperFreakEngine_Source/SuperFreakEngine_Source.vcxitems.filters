@@ -138,14 +138,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Renderer.h">
       <Filter>Component\SpriteRenderer</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Script.h">
-      <Filter>Component\Scripts</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Animation.h">
       <Filter>Component\Animator</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Animator.h">
       <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Script.h">
+      <Filter>Component\SpriteRenderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

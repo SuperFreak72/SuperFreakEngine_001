@@ -59,9 +59,9 @@ namespace SF {
 		HDC imgHdc = mTexture->GetHdc();
 
 		AlphaBlend(hdc
-			, pos.x, pos.y
-			, sprite.size.x * 5
-			, sprite.size.y * 5
+			, pos.x + sprite.offset.x , pos.y + sprite.offset.y
+			, sprite.size.x * scale.x
+			, sprite.size.y * scale.y
 			, imgHdc
 			, sprite.leftTop.x
 			, sprite.leftTop.y
@@ -71,16 +71,35 @@ namespace SF {
 	}
 	void Animation::CreateAnimation(const std::wstring& name, Graphics::Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLength, float duration) {
 		mTexture = spriteSheet;
-		for (size_t i = 0; i < spriteLength; i++)
-		{
-			Sprite sprite = {};
-			sprite.leftTop.x = leftTop.x + (size.x * i);
-			sprite.leftTop.y = leftTop.y;
-			sprite.size = size;
-			sprite.offset = offset;
-			sprite.duration = duration;
+		if (spriteSheet->GetWidth() < spriteLength * size.x) {
+			UINT frame = spriteSheet->GetWidth() / size.x;
+			for (size_t j = 0; j < spriteLength / frame; j++) {
+				for (size_t i = 0; i < frame; i++)
+				{
+					Sprite sprite = {};
+					sprite.leftTop.x = leftTop.x + (size.x * i);
+					sprite.leftTop.y = leftTop.y + (size.y * j);
+					sprite.size = size;
+					sprite.offset = offset;
+					sprite.duration = duration;
 
-			mAnimationSheet.push_back(sprite);
+					mAnimationSheet.push_back(sprite);
+				}
+			}
+		}
+		else {
+			for (size_t i = 0; i < spriteLength; i++)
+			{
+
+				Sprite sprite = {};
+				sprite.leftTop.x = leftTop.x + (size.x * i);
+				sprite.leftTop.y = leftTop.y;
+				sprite.size = size;
+				sprite.offset = offset;
+				sprite.duration = duration;
+
+				mAnimationSheet.push_back(sprite);
+			}
 		}
 	}
 	void Animation::Reset() {

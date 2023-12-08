@@ -18,12 +18,13 @@ namespace SF {
 		virtual void LateUpdate() override;
 		virtual void Render(HDC hdc) override;
 
+		void SetTarget(GameObject* target) { mTarget = target; }
 
 	private:
+		class GameObject* mTarget;
 		Vector2 mDistance;
 		Vector2 mResolution;
 		Vector2 mLookPosition;
-		GameObject* mTarget;
 	};
 }
 

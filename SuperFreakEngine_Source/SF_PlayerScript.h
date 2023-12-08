@@ -6,12 +6,18 @@ namespace SF {
 	class PlayerScript : public Script {
 	public :
 		enum class eState {
-			Stand,
+			Idle,
 			Walk,
 			Roll,
+			Swim,
 			Grass,
+			GrassWalk,
+			Attack1,
+			Attack2,
+			Attack2Shot,
+			Death,
+			Pendant,
 			Glove,
-			
 		};
 		enum class eDirection
 		{
@@ -20,6 +26,13 @@ namespace SF {
 			Down,
 			Up,
 			End,
+		};
+		enum class eWeapon {
+			ShortSword,
+			Gloves,
+			BigSword,
+			Spear,
+			Bow
 		};
 
 		PlayerScript();
@@ -32,19 +45,39 @@ namespace SF {
 
 		eDirection GetDirection() { return mDirection; }
 	private:
-		void Stand();
-		void Move();
+		void Idle();
+		void Walk();
 		void Roll();
+		void Attack1();
+		void Attack2();
+		void ShortSword();
+		void Shield();
+		void ShieldWalk();
 		void Glove();
-		void TurnIdle();
-		void TurnRoll();
-		void TurnGlove();
+		void GloveShot();
+		void Death();
+		void UsePendant();
+
+		void AnimationIdle();
+		void AnimationWalk();
+		void AnimationRoll();
+		void AnimationShieldOff();
+		void AnimationDeath();
+		void AnimationPandent();
+		void AnimationAttack1();
+		void AnimationAttack2();
+		void AnimationAttack2Shot();
+
+		void CheckShieldMove();
 
 	private:
 		eState mState;
 		eDirection mDirection;
+		eDirection mFocusDirection;
+		eWeapon mWeapon;
 		class Animator* mAnimator;
 		bool mb_Complete;
+		bool mb_Shield;
 	};
 }
 
