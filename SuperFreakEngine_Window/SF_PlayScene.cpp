@@ -1,9 +1,9 @@
 #include "SF_PlayScene.h"
 #include "SF_GameObject.h"
 #include "SF_Player.h"
+#include "SF_Input.h"
 #include "SF_Transform.h"
 #include "SF_SpriteRenderer.h"
-#include "SF_Input.h"
 #include "SF_SceneManager.h"
 #include "SF_Object.h"
 #include "SF_Resources.h"
@@ -11,6 +11,8 @@
 #include "SF_Camera.h"
 #include "SF_Renderer.h"
 #include "SF_Animator.h"
+#include "SF_BoxCollider2D.h"
+#include "SF_CollisionManager.h"
 
 
 namespace SF {
@@ -18,6 +20,8 @@ namespace SF {
 	PlayScene::~PlayScene() { }
 
 	void PlayScene::Initialize() {
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Player, true);
+
 		bg = Object::Instantiate<Player>
 			(enums::eLayerType::BackGround);
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
@@ -53,6 +57,8 @@ namespace SF {
 
 		player = Object::Instantiate<Player>(enums::eLayerType::Player);
 		player->AddComponent<PlayerScript>();
+		BoxCollider2D* collider = player->AddComponent<BoxCollider2D>();
+		collider->SetOffset(Vector2(80.0f, 64.0f));
 		
 		cameraComp->SetTarget(player);
 		Animator* playerAnimator = player->AddComponent<Animator>();
@@ -170,7 +176,7 @@ namespace SF {
 	}
 
 	void PlayScene::LoadAnimationShortSword(Animator* playerAnimator) {
-		Graphics::Texture* PlayerAttackTex = Resources::Find<Graphics::Texture>(L"PlayerAttack_SSG");
+		Graphics::Texture* PlayerAttackTex = Resources::Find<Graphics::Texture>(L"PlayerAttack_SS");
 
 		playerAnimator->CreateAnimation(L"sSwordAttackDown", PlayerAttackTex,
 			Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 18, 0.05f);
@@ -183,7 +189,7 @@ namespace SF {
 	}
 
 	void PlayScene::LoadAnimationShield(Animator* playerAnimator) {
-		Graphics::Texture* PlayerAttackTex = Resources::Find<Graphics::Texture>(L"PlayerAttack_SSG");
+		Graphics::Texture* PlayerAttackTex = Resources::Find<Graphics::Texture>(L"PlayerAttack_SS");
 
 		playerAnimator->CreateAnimation(L"ShieldDown", PlayerAttackTex,
 			Vector2(0.0f, 512.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 5, 0.08f);
@@ -214,33 +220,33 @@ namespace SF {
 	}
 
 	void PlayScene::LoadAnimationGloves(Animator* playerAnimator) {
-		Graphics::Texture* PlayerAttackTex = Resources::Find<Graphics::Texture>(L"PlayerAttack_SSG");
+		Graphics::Texture* PlayerAttackTex = Resources::Find<Graphics::Texture>(L"PlayerAttack_G");
 
 		playerAnimator->CreateAnimation(L"GloveAttackDown", PlayerAttackTex,
-			Vector2(0.0f, 1024.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 20, 0.04f);
+			Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 20, 0.04f);
 		playerAnimator->CreateAnimation(L"GloveAttackLeft", PlayerAttackTex,
-			Vector2(0.0f, 1152.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 20, 0.04f);
+			Vector2(0.0f, 128.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 20, 0.04f);
 		playerAnimator->CreateAnimation(L"GloveAttackRight", PlayerAttackTex,
-			Vector2(0.0f, 1280.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 20, 0.04f);
+			Vector2(0.0f, 256.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 20, 0.04f);
 		playerAnimator->CreateAnimation(L"GloveAttackUp", PlayerAttackTex,
-			Vector2(0.0f, 1408.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 20, 0.04f);
+			Vector2(0.0f, 384.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 20, 0.04f);
 
 		playerAnimator->CreateAnimation(L"GloveAttack2Down", PlayerAttackTex,
-			Vector2(0.0f, 1536.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
+			Vector2(0.0f, 512.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
 		playerAnimator->CreateAnimation(L"GloveAttack2Left", PlayerAttackTex,
-			Vector2(0.0f, 1664.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
+			Vector2(0.0f, 640.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
 		playerAnimator->CreateAnimation(L"GloveAttack2Right", PlayerAttackTex,
-			Vector2(0.0f, 1792.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
+			Vector2(0.0f, 768.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
 		playerAnimator->CreateAnimation(L"GloveAttack2Up", PlayerAttackTex,
-			Vector2(0.0f, 1920.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
+			Vector2(0.0f, 896.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 11, 0.05f);
 
 		playerAnimator->CreateAnimation(L"GloveAttack2ShotDown", PlayerAttackTex,
-			Vector2(1408.0f, 1536.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 5, 0.03f);
+			Vector2(1408.0f, 512.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 5, 0.03f);
 		playerAnimator->CreateAnimation(L"GloveAttack2ShotLeft", PlayerAttackTex,
-			Vector2(1408.0f, 1664.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 5, 0.03f);
+			Vector2(1408.0f, 640.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 5, 0.03f);
 		playerAnimator->CreateAnimation(L"GloveAttack2ShotRight", PlayerAttackTex,
-			Vector2(1408.0f, 1792.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 5, 0.03f);
+			Vector2(1408.0f, 768.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 5, 0.03f);
 		playerAnimator->CreateAnimation(L"GloveAttack2ShotUp", PlayerAttackTex,
-			Vector2(1408.0f, 1920.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 5, 0.03f);
+			Vector2(1408.0f, 896.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 5, 0.03f);
 	}
 }

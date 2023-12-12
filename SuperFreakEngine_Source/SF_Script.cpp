@@ -1,4 +1,5 @@
 #include "SF_Script.h"
+#include "SF_Collider.h"
 
 namespace SF {
 	Script::Script()
@@ -18,6 +19,17 @@ namespace SF {
 	{
 	}
 	void Script::Render(HDC hdc)
+	{
+	}
+	void Script::OnCollisionEnter(Collider* other)
+	{
+	}
+
+	void Script::OnCollisionStay(Collider* other)
+	{
+	}
+
+	void Script::OnCollisionExit(Collider* other)
 	{
 	}
 }

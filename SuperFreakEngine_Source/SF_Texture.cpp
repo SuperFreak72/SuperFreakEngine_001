@@ -1,12 +1,45 @@
 #include "SF_Texture.h"
 #include "SF_Application.h"
+#include "SF_Resources.h"
 
 extern SF::Application app;
 
 namespace SF::Graphics {
+	Texture* Texture::Create(const std::wstring& name, UINT width, UINT height) {
+		Texture* image = Resources::Find<Texture>(name);
+		if (image)
+			return image;
+
+		image = new Texture();
+		image->SetName(name);
+		image->SetWidth(width);
+		image->SetHeight(height);
+
+		HDC hdc = app.GetHdc();
+		HWND hwnd = app.GetHwnd();
+
+		image->mBitmap = CreateCompatibleBitmap(hdc, width, height);
+		image->mHdc = CreateCompatibleDC(hdc);
+
+
+		HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
+		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);
+		Rectangle(image->mHdc, -1, -1, image->GetWidth() + 1, image->GetHeight() + 1);
+		SelectObject(hdc, oldBrush);
+
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(image->mHdc, image->mBitmap);
+		DeleteObject(oldBitmap);
+
+		Resources::Insert(name + L"Image", image);
+
+		return image;
+	}
+
 	Texture::Texture()
-		: Resource(enums::eResourceType::Texture) { }
-	Texture::~Texture() { }
+		: Resource(enums::eResourceType::Texture)
+		, mbAlpha(false) 
+	{}
+	Texture::~Texture() {}
 
 	HRESULT Texture::Load(const std::wstring& path) {
 		std::wstring ext
@@ -26,6 +59,11 @@ namespace SF::Graphics {
 
 			mWidth = info.bmWidth;
 			mHeight = info.bmHeight;
+
+			if (info.bmBitsPixel == 32)
+				mbAlpha = true;
+			else if (info.bmBitsPixel == 24)
+				mbAlpha = false;
 
 			HDC mainDC = app.GetHdc();
 			mHdc = CreateCompatibleDC(mainDC);

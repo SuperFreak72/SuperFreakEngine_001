@@ -8,8 +8,7 @@
 
 namespace SF::Object {
 	template <typename T>
-	static T* Instantiate(SF::enums::eLayerType type)
-	{
+	static T* Instantiate(SF::enums::eLayerType type) {
 		T* gameObject = new T();
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);
@@ -19,8 +18,7 @@ namespace SF::Object {
 	}
 
 	template <typename T>
-	static T* Instantiate(SF::enums::eLayerType type, math::Vector2 position)
-	{
+	static T* Instantiate(SF::enums::eLayerType type, math::Vector2 position) {
 		T* gameObject = new T();
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);

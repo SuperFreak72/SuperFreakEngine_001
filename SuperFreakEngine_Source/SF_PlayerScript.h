@@ -44,6 +44,9 @@ namespace SF {
 		void Render(HDC hdc) override;
 
 		eDirection GetDirection() { return mDirection; }
+		void OnCollisionEnter(Collider* other) override;
+		void OnCollisionStay(Collider* other) override;
+		void OnCollisionExit(Collider* other) override;
 	private:
 		void Idle();
 		void Walk();
@@ -69,6 +72,8 @@ namespace SF {
 		void AnimationAttack2Shot();
 
 		void CheckShieldMove();
+
+
 
 	private:
 		eState mState;

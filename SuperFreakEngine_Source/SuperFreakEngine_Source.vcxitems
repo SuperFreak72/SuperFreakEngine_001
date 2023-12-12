@@ -19,9 +19,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Animation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Animator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Application.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_BoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Bullet.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Camera.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_CircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Collider.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_CollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Destroy.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Entity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Enums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_GameObject.h" />
@@ -44,10 +49,15 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Animation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Animator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_BoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Camera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Application.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Bullet.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_CircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Collider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_CollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Component.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Destroy.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Entity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Input.cpp" />

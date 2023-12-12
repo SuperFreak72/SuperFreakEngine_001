@@ -59,6 +59,18 @@ namespace SF {
 
 	void PlayerScript::Render(HDC hdc) {}
 
+	void PlayerScript::OnCollisionEnter(Collider* other) {
+		int a = 0;
+	}
+
+	void PlayerScript::OnCollisionStay(Collider* other)
+	{
+	}
+
+	void PlayerScript::OnCollisionExit(Collider* other)
+	{
+	}
+
 	void PlayerScript::Idle() {
 		if (Input::GetKey(eKeyCode::D)) //Right Move
 		{
@@ -333,16 +345,16 @@ namespace SF {
 		else {
 			switch (mDirection) {
 			case PlayerScript::eDirection::Left:
-				pos.x -= 600.0f * Time::DeltaTime();
+				pos.x -= 2000.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Right:
-				pos.x += 600.0f * Time::DeltaTime();
+				pos.x += 2000.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Up:
-				pos.y -= 600.0f * Time::DeltaTime();
+				pos.y -= 2000.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Down:
-				pos.y += 600.0f * Time::DeltaTime();
+				pos.y += 2000.0f * Time::DeltaTime();
 				break;
 			}
 		}

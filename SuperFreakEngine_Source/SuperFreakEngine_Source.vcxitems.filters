@@ -67,6 +67,21 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Animator.cpp">
       <Filter>Component\Animator</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_CollisionManager.cpp">
+      <Filter>Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_BoxCollider2D.cpp">
+      <Filter>Component\Collision\BoxCollider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Collider.cpp">
+      <Filter>Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_CircleCollider2D.cpp">
+      <Filter>Component\Collision\CircleCollider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Destroy.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h">
@@ -129,9 +144,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Transform.h">
       <Filter>Component\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.h">
-      <Filter>Component\SpriteRenderer</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Camera.h">
       <Filter>Component\Camera</Filter>
     </ClInclude>
@@ -144,7 +156,25 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Animator.h">
       <Filter>Component\Animator</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_CollisionManager.h">
+      <Filter>Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_BoxCollider2D.h">
+      <Filter>Component\Collision\BoxCollider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Collider.h">
+      <Filter>Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_CircleCollider2D.h">
+      <Filter>Component\Collision\CircleCollider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Destroy.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Script.h">
+      <Filter>Component\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.h">
       <Filter>Component\SpriteRenderer</Filter>
     </ClInclude>
   </ItemGroup>
@@ -187,6 +217,15 @@
     </Filter>
     <Filter Include="Component\Animator">
       <UniqueIdentifier>{4b637530-d0c3-4e40-881a-a154d4bf13a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collision">
+      <UniqueIdentifier>{2a0d0ffb-96a0-490e-a20a-f17078144bdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collision\BoxCollider2D">
+      <UniqueIdentifier>{93fd6bf6-5ded-4994-ba2f-2ac7829bd699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collision\CircleCollider2D">
+      <UniqueIdentifier>{fb68eb23-709c-4b31-8ce7-ab40aa04ca77}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

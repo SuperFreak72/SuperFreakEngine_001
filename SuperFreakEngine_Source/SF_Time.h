@@ -7,9 +7,8 @@ namespace SF {
 		static void Initailize();
 		static void Update();
 		static void Render(HDC hdc);
-		static float DeltaTime() {
-			return deltaTime;
-		}
+
+		__forceinline static float DeltaTime() { return deltaTime; }
 	private:
 		static LARGE_INTEGER CpuFrequency;
 		static LARGE_INTEGER PrevFrequency;

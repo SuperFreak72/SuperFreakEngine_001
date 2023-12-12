@@ -1,11 +1,24 @@
 #pragma once
 #include "CommonInclude.h"
 #include "SF_Component.h"
+#include "SF_Collider.h"
 
+namespace SF::object {
+	void Destroy(GameObject* gameObject);
+}
 
 namespace SF {
 	class GameObject {
 	public:
+		friend void object::Destroy(GameObject* obj);
+
+		enum class eState {
+			Active,
+			Paused,
+			Dead,
+			End
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -35,9 +48,22 @@ namespace SF {
 
 			return component;
 		}
+
+		eState GetState() { return mState; }
+		void SetActive(bool power) {
+			if (power == true) mState = eState::Active;
+			if (power == false) mState = eState::Paused;
+		}
+
+		bool IsActive() { return mState == eState::Active; }
+
+		bool IsDead() { return mState == eState::Dead; }
 	private:
-		void initializeTransform();
+		void initializeTransform(); 
+		void death() { mState = eState::Dead; }
+
 	private:
 		std::vector<Component*> mComponents;
+		eState mState;
 	};
 }

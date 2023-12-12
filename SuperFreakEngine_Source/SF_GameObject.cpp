@@ -3,13 +3,25 @@
 #include "SF_Time.h"
 #include "SF_Transform.h"
 
+namespace SF::object {
+	void Destroy(GameObject* gameObject) {
+		if (gameObject != nullptr)
+			gameObject->death();
+	}
+}
+
 namespace SF {
-	GameObject::GameObject() {
+	GameObject::GameObject() 
+	: mState(eState::Active) {
 		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();
 	}
+
 	GameObject::~GameObject() {
 		for (Component* comp : mComponents) {
+			if (comp == nullptr)
+				continue;
+
 			delete comp;
 			comp = nullptr;
 		}

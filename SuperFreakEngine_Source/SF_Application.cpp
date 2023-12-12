@@ -1,5 +1,7 @@
 #include "SF_Application.h"
 #include "SF_SceneManager.h"
+#include "SF_Resources.h"
+#include "SF_CollisionManager.h"
 #include "SF_Input.h"
 #include "SF_Time.h"
 
@@ -20,6 +22,7 @@ namespace SF {
 		createBuffer(width, height);
 		initializeEtc();
 
+		CollisionManager::Initialize();
 		SceneManager::Initialize();
 	}
 
@@ -27,16 +30,20 @@ namespace SF {
 		Update();
 		LateUpdate();
 		Render();
+
+		Destroy();
 	}
 
 	void Application::Update() {
 		Input::Update();
 		Time::Update();
 
+		CollisionManager::Update();
 		SceneManager::Update();
 	}
 
 	void Application::LateUpdate() {
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
@@ -44,13 +51,30 @@ namespace SF {
 		clearRenderTarget();
 
 		Time::Render(mBackHdc);
+		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
 	}
 
+	void Application::Destroy() {
+		SceneManager::Destroy();
+	}
+
+	void Application::Release() {
+		SceneManager::Release();
+		Resources::Release();
+	}
+
+
 	void Application::clearRenderTarget() {
-		Rectangle(mBackHdc, -1, -1, mWidth, mHeight);
+		HBRUSH grayBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
+		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, grayBrush);
+
+		Rectangle(mBackHdc, -1, -1, 1601, 901);
+
+		(HBRUSH)SelectObject(mBackHdc, oldBrush);
+		DeleteObject(grayBrush);
 	}
 
 	void Application::copyRenderTarget(HDC source, HDC dest) {

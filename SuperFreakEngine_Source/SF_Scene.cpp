@@ -49,6 +49,16 @@ namespace SF {
 		}
 	}
 
+	void Scene::Destroy() {
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Destroy();
+		}
+	}
+
 	void Scene::AddGameObject(GameObject* gameObject, const enums::eLayerType type) {
 		mLayers[(UINT)type]->AddGameObject(gameObject);
 	}

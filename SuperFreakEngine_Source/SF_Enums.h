@@ -4,9 +4,10 @@
 namespace SF::enums {
 	enum class eComponentType {
 		Transform,
+		Collider,
+		Script,
 		SpriteRenderer,
 		Animator,
-		Script,
 		Camera,
 		End,
 	};
@@ -14,7 +15,9 @@ namespace SF::enums {
 	enum class eLayerType {
 		None,
 		BackGround,
+		BackObject,
 		Player,
+		Particle,
 		Max = 16,
 	};
 
