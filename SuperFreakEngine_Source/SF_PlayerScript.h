@@ -15,6 +15,7 @@ namespace SF {
 			Attack1,
 			Attack2,
 			Attack2Shot,
+			Attack2Shot2,
 			Death,
 			Pendant,
 			Glove,
@@ -60,6 +61,9 @@ namespace SF {
 		void GloveShot();
 		void BigSword();
 		void BigSwordSpin();
+		void Spear();
+		void SpearShot();
+		void SpearShot2();
 		void Death();
 		void UsePendant();
 
@@ -72,6 +76,7 @@ namespace SF {
 		void AnimationAttack1();
 		void AnimationAttack2();
 		void AnimationAttack2Shot();
+		void AnimationSpearShot2();
 
 		void CheckShieldMove();
 

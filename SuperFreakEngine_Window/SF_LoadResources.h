@@ -10,7 +10,7 @@ namespace SF {
 		Resources::Load<Graphics::Texture>(L"PlayerAttack_SS", L"..\\Resources\\Will_Cycle_Attack_Short_Shield_128x128_Alpha.bmp");
 		Resources::Load<Graphics::Texture>(L"PlayerAttack_G", L"..\\Resources\\Will_Cycle_Attack_Gloves_128x128_Alpha.bmp");
 		Resources::Load<Graphics::Texture>(L"PlayerAttack_BS", L"..\\Resources\\Will_Cycle_Attack_BigSword_256x256_Alpha.bmp");
-		
+		Resources::Load<Graphics::Texture>(L"PlayerAttack_S", L"..\\Resources\\Will_Cycle_Attack_Spear_256x256_Alpha.bmp");
 		
 		
 	}

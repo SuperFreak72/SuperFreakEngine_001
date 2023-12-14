@@ -44,6 +44,9 @@ namespace SF {
 		case SF::PlayerScript::eState::Attack2Shot:
 			Attack2();
 			break;
+		case SF::PlayerScript::eState::Attack2Shot2:
+			SpearShot2();
+			break;
 		case SF::PlayerScript::eState::Death:
 			Death();
 			break;
@@ -128,6 +131,9 @@ namespace SF {
 		if (Input::GetKey(eKeyCode::Three)) {
 			mWeapon = PlayerScript::eWeapon::BigSword;
 		}
+		if (Input::GetKey(eKeyCode::Four)) {
+			mWeapon = PlayerScript::eWeapon::Spear;
+		}
 	}
 
 	void PlayerScript::Walk() {
@@ -199,6 +205,7 @@ namespace SF {
 			BigSword();
 			break;
 		case PlayerScript::eWeapon::Spear:
+			Spear();
 			break;
 		case PlayerScript::eWeapon::Bow:
 			break;
@@ -218,6 +225,7 @@ namespace SF {
 				BigSwordSpin();
 				break;
 			case PlayerScript::eWeapon::Spear:
+				Spear();
 				break;
 			case PlayerScript::eWeapon::Bow:
 				break;
@@ -235,6 +243,7 @@ namespace SF {
 			case PlayerScript::eWeapon::BigSword:
 				break;
 			case PlayerScript::eWeapon::Spear:
+				SpearShot();
 				break;
 			case PlayerScript::eWeapon::Bow:
 				break;
@@ -374,6 +383,50 @@ namespace SF {
 	}
 
 	void PlayerScript::BigSwordSpin() {
+		if (mAnimator->IsComplete()) {
+			AnimationIdle();
+		}
+	}
+
+	void PlayerScript::Spear() {
+		if (mAnimator->IsComplete()) {
+			if (mState == PlayerScript::eState::Attack1)
+				AnimationIdle();
+			if (mState == PlayerScript::eState::Attack2) {
+				mState = PlayerScript::eState::Attack2Shot;
+				AnimationAttack2Shot();
+			}
+		}
+	}
+
+	void PlayerScript::SpearShot() {
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+
+		if (mAnimator->IsComplete()) {
+			AnimationSpearShot2();
+		}
+		else {
+			switch (mDirection) {
+			case PlayerScript::eDirection::Left:
+				pos.x -= 400.0f * Time::DeltaTime();
+				break;
+			case PlayerScript::eDirection::Right:
+				pos.x += 400.0f * Time::DeltaTime();
+				break;
+			case PlayerScript::eDirection::Up:
+				pos.y -= 400.0f * Time::DeltaTime();
+				break;
+			case PlayerScript::eDirection::Down:
+				pos.y += 400.0f * Time::DeltaTime();
+				break;
+			}
+		}
+
+		tr->SetPosition(pos);
+	}
+
+	void PlayerScript::SpearShot2() {
 		if (mAnimator->IsComplete()) {
 			AnimationIdle();
 		}
@@ -553,6 +606,24 @@ namespace SF {
 			}
 			break;
 		case SF::PlayerScript::eWeapon::Spear:
+			switch (mDirection) {
+			case PlayerScript::eDirection::Left:
+				mDirection = PlayerScript::eDirection::Left;
+				mAnimator->PlayAnimation(L"SpearAttackLeft", false);
+				break;
+			case PlayerScript::eDirection::Right:
+				mDirection = PlayerScript::eDirection::Right;
+				mAnimator->PlayAnimation(L"SpearAttackRight", false);
+				break;
+			case PlayerScript::eDirection::Up:
+				mDirection = PlayerScript::eDirection::Up;
+				mAnimator->PlayAnimation(L"SpearAttackUp", false);
+				break;
+			case PlayerScript::eDirection::Down:
+				mDirection = PlayerScript::eDirection::Down;
+				mAnimator->PlayAnimation(L"SpearAttackDown", false);
+				break;
+			}
 			break;
 		case SF::PlayerScript::eWeapon::Bow:
 			break;
@@ -598,12 +669,29 @@ namespace SF {
 				break;
 			}
 			break;
-
 		case SF::PlayerScript::eWeapon::BigSword: //´ë°Ë
 			mDirection = PlayerScript::eDirection::Down;
 			mAnimator->PlayAnimation(L"BigSwordSpin", false);
 			break;
 		case SF::PlayerScript::eWeapon::Spear:
+			switch (mDirection) {
+			case PlayerScript::eDirection::Left:
+				mDirection = PlayerScript::eDirection::Left;
+				mAnimator->PlayAnimation(L"SpearAttack2Left", false);
+				break;
+			case PlayerScript::eDirection::Right:
+				mDirection = PlayerScript::eDirection::Right;
+				mAnimator->PlayAnimation(L"SpearAttack2Right", false);
+				break;
+			case PlayerScript::eDirection::Up:
+				mDirection = PlayerScript::eDirection::Up;
+				mAnimator->PlayAnimation(L"SpearAttack2Up", false);
+				break;
+			case PlayerScript::eDirection::Down:
+				mDirection = PlayerScript::eDirection::Down;
+				mAnimator->PlayAnimation(L"SpearAttack2Down", false);
+				break;
+			}
 			break;
 		case SF::PlayerScript::eWeapon::Bow:
 			break;
@@ -640,6 +728,40 @@ namespace SF {
 			}
 			break;
 		case PlayerScript::eWeapon::BigSword:
+			break;
+		case PlayerScript::eWeapon::Spear:
+			switch (mDirection) {
+			case PlayerScript::eDirection::Left:
+				mAnimator->PlayAnimation(L"SpearAttack2ShotLeft", false);
+				break;
+			case PlayerScript::eDirection::Right:
+				mAnimator->PlayAnimation(L"SpearAttack2ShotRight", false);
+				break;
+			case PlayerScript::eDirection::Up:
+				mAnimator->PlayAnimation(L"SpearAttack2ShotUp", false);
+				break;
+			case PlayerScript::eDirection::Down:
+				mAnimator->PlayAnimation(L"SpearAttack2ShotDown", false);
+				break;
+			}
+			break;
+		}
+	}
+
+	void PlayerScript::AnimationSpearShot2() {
+		mState = PlayerScript::eState::Attack2Shot2;
+		switch (mDirection) {
+		case PlayerScript::eDirection::Left:
+			mAnimator->PlayAnimation(L"SpearAttack2Shot2Left", false);
+			break;
+		case PlayerScript::eDirection::Right:
+			mAnimator->PlayAnimation(L"SpearAttack2Shot2Right", false);
+			break;
+		case PlayerScript::eDirection::Up:
+			mAnimator->PlayAnimation(L"SpearAttack2Shot2Up", false);
+			break;
+		case PlayerScript::eDirection::Down:
+			mAnimator->PlayAnimation(L"SpearAttack2Shot2Down", false);
 			break;
 		}
 	}

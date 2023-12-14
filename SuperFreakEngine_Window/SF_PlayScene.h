@@ -32,6 +32,7 @@ namespace SF {
 		void LoadAnimationShield(Animator* playerAnimator);
 		void LoadAnimationGloves(Animator* playerAnimator);
 		void LoadAnimationBigSword(Animator* playerAnimator);
+		void LoadAnimationSpear(Animator* playerAnimator);
 	private:
 		class Player* bg;
 		class Player* player;

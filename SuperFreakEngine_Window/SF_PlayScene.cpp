@@ -76,6 +76,7 @@ namespace SF {
 		LoadAnimationShield(playerAnimator);
 		LoadAnimationGloves(playerAnimator);
 		LoadAnimationBigSword(playerAnimator);
+		LoadAnimationSpear(playerAnimator);
 		
 		playerAnimator->PlayAnimation(L"IdleDown", true);
 		player->GetComponent<Transform>()->SetPosition(Vector2(128.0f, 128.0f));
@@ -263,6 +264,51 @@ namespace SF {
 			Vector2(0.0f, 512.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 40, 0.06f);
 		playerAnimator->CreateAnimation(L"BigSwordAttackUp", PlayerAttackTex,
 			Vector2(0.0f, 768.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 40, 0.06f);
+
+		playerAnimator->CreateAnimation(L"BigSwordSpin", PlayerAttackTex,
+			Vector2(0.0f, 1024.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 31, 0.07f);
+
+	}
+	void PlayScene::LoadAnimationSpear(Animator* playerAnimator) {
+		Graphics::Texture* PlayerAttackTex = Resources::Find<Graphics::Texture>(L"PlayerAttack_S");
+
+		playerAnimator->CreateAnimation(L"SpearAttackDown", PlayerAttackTex,
+			Vector2(0.0f, 0.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 23, 0.04f);
+		playerAnimator->CreateAnimation(L"SpearAttackLeft", PlayerAttackTex,
+			Vector2(0.0f, 256.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 23, 0.04f);
+		playerAnimator->CreateAnimation(L"SpearAttackRight", PlayerAttackTex,
+			Vector2(0.0f, 512.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 23, 0.04f);
+		playerAnimator->CreateAnimation(L"SpearAttackUp", PlayerAttackTex,
+			Vector2(0.0f, 768.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 23, 0.04f);
+
+		playerAnimator->CreateAnimation(L"SpearAttack2Down", PlayerAttackTex,
+			Vector2(0.0f, 1024.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 19, 0.06f);
+		playerAnimator->CreateAnimation(L"SpearAttack2Left", PlayerAttackTex,
+			Vector2(0.0f, 1280.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 19, 0.06f);
+		playerAnimator->CreateAnimation(L"SpearAttack2Right", PlayerAttackTex,
+			Vector2(0.0f, 1536.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 19, 0.06f);
+		playerAnimator->CreateAnimation(L"SpearAttack2Up", PlayerAttackTex,
+			Vector2(0.0f, 1792.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 19, 0.06f);
+
+		playerAnimator->CreateAnimation(L"SpearAttack2ShotDown", PlayerAttackTex,
+			Vector2(4864.0f, 1024.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 15, 0.04f);
+		playerAnimator->CreateAnimation(L"SpearAttack2ShotLeft", PlayerAttackTex,
+			Vector2(4864.0f, 1280.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 15, 0.04f);
+		playerAnimator->CreateAnimation(L"SpearAttack2ShotRight", PlayerAttackTex,
+			Vector2(4864.0f, 1536.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 15, 0.04f);
+		playerAnimator->CreateAnimation(L"SpearAttack2ShotUp", PlayerAttackTex,
+			Vector2(4864.0f, 1792.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 15, 0.04f);
+
+		playerAnimator->CreateAnimation(L"SpearAttack2Shot2Down", PlayerAttackTex,
+			Vector2(8704.0f, 1024.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 10, 0.06f);
+		playerAnimator->CreateAnimation(L"SpearAttack2Shot2Left", PlayerAttackTex,
+			Vector2(8704.0f, 1280.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 10, 0.06f);
+		playerAnimator->CreateAnimation(L"SpearAttack2Shot2Right", PlayerAttackTex,
+			Vector2(8704.0f, 1536.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 10, 0.06f);
+		playerAnimator->CreateAnimation(L"SpearAttack2Shot2Up", PlayerAttackTex,
+			Vector2(8704.0f, 1792.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 10, 0.06f);
+
+
 
 		playerAnimator->CreateAnimation(L"BigSwordSpin", PlayerAttackTex,
 			Vector2(0.0f, 1024.0f), Vector2(256.0f, 256.0f), Vector2(-192.0f, -192.0f), 31, 0.07f);
