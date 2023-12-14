@@ -130,15 +130,47 @@ namespace SF {
 		Vector2 rightPos = rightTr->GetPosition() + right->GetOffset();
 
 		//size 1,1 일 기본크기가 100픽셀
-		Vector2 leftSize = left->GetSize() * 100.0f;
-		Vector2 rightSize = right->GetSize() * 100.0f;
+		Vector2 leftSize = left->GetSize();
+		Vector2 rightSize = right->GetSize();
 
-		//AABB 충돌
-		if (fabs(leftPos.x - rightPos.x) < fabs(leftSize.x / 2.0f + rightSize.x / 2.0f)
-			&& fabs(leftPos.y - rightPos.y) < fabs(leftSize.y / 2.0f + rightSize.y / 2.0f))
-		{
-			return true;
+		enums::eColliderType leftType = left->GetColliderType();
+		enums::eColliderType rightType = right->GetColliderType();
+
+		if (leftType == enums::eColliderType::Rect2D
+			&& rightType == enums::eColliderType::Rect2D) {
+			if (fabs(leftPos.x - rightPos.x) < fabs(leftSize.x / 2.0f + rightSize.x / 2.0f)
+				&& fabs(leftPos.y - rightPos.y) < fabs(leftSize.y / 2.0f + rightSize.y / 2.0f)) {
+				return true;
+			}
 		}
+
+		if (leftType == enums::eColliderType::Circle2D 
+			&& rightType == enums::eColliderType::Circle2D) { //circle -circle
+			
+			Vector2 leftCirclePos = leftPos + (leftSize / 2.0f);
+			Vector2 rightCirclePos = rightPos + (rightSize / 2.0f);
+			float distance = (leftCirclePos - rightCirclePos).length();
+			if (distance <= (leftSize.x / 2.0f + rightSize.x / 2.0f)) {
+				return true;
+			}
+		}
+
+		if (leftType == enums::eColliderType::Circle2D && rightType == enums::eColliderType::Rect2D) { // circle - rect
+			float destX = abs(leftPos.x - rightPos.x);
+			float destY = abs(leftPos.y - rightPos.y);
+
+			if (destX <= (rightSize.x / 2) && destY <= (rightSize.y / 2))
+				return true;
+		}
+
+		if (leftType == enums::eColliderType::Rect2D && rightType == enums::eColliderType::Circle2D) { // rect - circle
+			float destX = abs(leftPos.x - rightPos.x);
+			float destY = abs(leftPos.y - rightPos.y);
+
+			if (destX <= (leftSize.x / 2) && destY <= (leftSize.y / 2))
+				return true;
+		}
+
 
 		return false;
 	}

@@ -32,7 +32,7 @@ namespace SF {
 			Gloves,
 			BigSword,
 			Spear,
-			Bow
+			Bow,
 		};
 
 		PlayerScript();
@@ -58,6 +58,8 @@ namespace SF {
 		void ShieldWalk();
 		void Glove();
 		void GloveShot();
+		void BigSword();
+		void BigSwordSpin();
 		void Death();
 		void UsePendant();
 

@@ -1,10 +1,12 @@
 #include "SF_BoxCollider2D.h"
 #include "SF_Transform.h"
 #include "SF_GameObject.h"
+#include "SF_Renderer.h"
+#include "SF_Camera.h"
 
 namespace SF {
 	BoxCollider2D::BoxCollider2D()
-	: Collider() 
+	: Collider(enums::eColliderType::Rect2D) 
 	{}
 	
 	BoxCollider2D::~BoxCollider2D() {}
@@ -19,6 +21,9 @@ namespace SF {
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
+		if (Renderer::mainCamera)
+			pos = Renderer::mainCamera->CaluatePosition(pos);
+
 		Vector2 offset = GetOffset();
 
 		HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
@@ -29,8 +34,8 @@ namespace SF {
 
 		Rectangle(hdc, pos.x + offset.x
 			, pos.y + offset.y
-			, pos.x + offset.x + 100 * GetSize().x
-			, pos.y + offset.y + 120 * GetSize().y);
+			, pos.x + offset.x + 128 * GetSize().x
+			, pos.y + offset.y + 128 * GetSize().y);
 
 		SelectObject(hdc, oldBrush);
 		SelectObject(hdc, oldPen);

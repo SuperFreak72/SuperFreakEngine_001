@@ -82,6 +82,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Destroy.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Object.cpp">
+      <Filter>Basic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h">

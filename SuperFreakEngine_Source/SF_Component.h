@@ -2,6 +2,8 @@
 #include "SF_Entity.h"
 
 namespace SF {
+	using namespace enums;
+
 	class GameObject;
 	class Component : public Entity {
 	public:

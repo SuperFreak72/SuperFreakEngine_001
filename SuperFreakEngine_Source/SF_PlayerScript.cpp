@@ -119,11 +119,14 @@ namespace SF {
 
 			AnimationPandent();
 		}
-		if (Input::GetKey(eKeyCode::E)) {
+		if (Input::GetKey(eKeyCode::Two)) {
 			mWeapon = PlayerScript::eWeapon::Gloves;
 		}
-		if (Input::GetKey(eKeyCode::Q)) {
+		if (Input::GetKey(eKeyCode::One)) {
 			mWeapon = PlayerScript::eWeapon::ShortSword;
+		}
+		if (Input::GetKey(eKeyCode::Three)) {
+			mWeapon = PlayerScript::eWeapon::BigSword;
 		}
 	}
 
@@ -193,6 +196,7 @@ namespace SF {
 			Glove();
 			break;
 		case PlayerScript::eWeapon::BigSword:
+			BigSword();
 			break;
 		case PlayerScript::eWeapon::Spear:
 			break;
@@ -211,6 +215,7 @@ namespace SF {
 				Glove();
 				break;
 			case PlayerScript::eWeapon::BigSword:
+				BigSwordSpin();
 				break;
 			case PlayerScript::eWeapon::Spear:
 				break;
@@ -360,6 +365,18 @@ namespace SF {
 		}
 
 		tr->SetPosition(pos);
+	}
+
+	void PlayerScript::BigSword() {
+		if (mAnimator->IsComplete()) {
+				AnimationIdle();
+		}
+	}
+
+	void PlayerScript::BigSwordSpin() {
+		if (mAnimator->IsComplete()) {
+			AnimationIdle();
+		}
 	}
 
 	void PlayerScript::Death() {
@@ -516,6 +533,24 @@ namespace SF {
 			break;
 
 		case SF::PlayerScript::eWeapon::BigSword:
+			switch (mDirection) {
+			case PlayerScript::eDirection::Left:
+				mDirection = PlayerScript::eDirection::Left;
+				mAnimator->PlayAnimation(L"BigSwordAttackLeft", false);
+				break;
+			case PlayerScript::eDirection::Right:
+				mDirection = PlayerScript::eDirection::Right;
+				mAnimator->PlayAnimation(L"BigSwordAttackRight", false);
+				break;
+			case PlayerScript::eDirection::Up:
+				mDirection = PlayerScript::eDirection::Up;
+				mAnimator->PlayAnimation(L"BigSwordAttackUp", false);
+				break;
+			case PlayerScript::eDirection::Down:
+				mDirection = PlayerScript::eDirection::Down;
+				mAnimator->PlayAnimation(L"BigSwordAttackDown", false);
+				break;
+			}
 			break;
 		case SF::PlayerScript::eWeapon::Spear:
 			break;
@@ -564,7 +599,9 @@ namespace SF {
 			}
 			break;
 
-		case SF::PlayerScript::eWeapon::BigSword:
+		case SF::PlayerScript::eWeapon::BigSword: //´ë°Ë
+			mDirection = PlayerScript::eDirection::Down;
+			mAnimator->PlayAnimation(L"BigSwordSpin", false);
 			break;
 		case SF::PlayerScript::eWeapon::Spear:
 			break;
@@ -601,6 +638,8 @@ namespace SF {
 				mAnimator->PlayAnimation(L"GloveAttack2ShotDown", false);
 				break;
 			}
+			break;
+		case PlayerScript::eWeapon::BigSword:
 			break;
 		}
 	}

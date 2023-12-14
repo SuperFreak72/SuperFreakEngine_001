@@ -63,6 +63,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Layer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Math.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Object.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_PlayerScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Renderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Resource.cpp" />
