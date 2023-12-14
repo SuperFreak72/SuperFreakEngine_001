@@ -244,13 +244,13 @@ namespace SF {
 			Vector2(0.0f, 896.0f), Vector2(128.0f, 128.0f), Vector2(-64.0f, -64.0f), 11, 0.05f);
 
 		playerAnimator->CreateAnimation(L"GloveAttack2ShotDown", PlayerAttackTex,
-			Vector2(1408.0f, 512.0f), Vector2(128.0f, 128.0f), Vector2(-64.0f, -64.0f), 5, 0.03f);
+			Vector2(1408.0f, 512.0f), Vector2(128.0f, 128.0f), Vector2(-64.0f, -64.0f), 5, 0.04f);
 		playerAnimator->CreateAnimation(L"GloveAttack2ShotLeft", PlayerAttackTex,
-			Vector2(1408.0f, 640.0f), Vector2(128.0f, 128.0f), Vector2(-64.0f, -64.0f), 5, 0.03f);
+			Vector2(1408.0f, 640.0f), Vector2(128.0f, 128.0f), Vector2(-64.0f, -64.0f), 5, 0.04f);
 		playerAnimator->CreateAnimation(L"GloveAttack2ShotRight", PlayerAttackTex,
-			Vector2(1408.0f, 768.0f), Vector2(128.0f, 128.0f), Vector2(-64.0f, -64.0f), 5, 0.03f);
+			Vector2(1408.0f, 768.0f), Vector2(128.0f, 128.0f), Vector2(-64.0f, -64.0f), 5, 0.04f);
 		playerAnimator->CreateAnimation(L"GloveAttack2ShotUp", PlayerAttackTex,
-			Vector2(1408.0f, 896.0f), Vector2(128.0f, 128.0f), Vector2(-64.0f, -64.0f), 5, 0.03f);
+			Vector2(1408.0f, 896.0f), Vector2(128.0f, 128.0f), Vector2(-64.0f, -64.0f), 5, 0.04f);
 	}
 	void PlayScene::LoadAnimationBigSword(Animator* playerAnimator) {
 		Graphics::Texture* PlayerAttackTex = Resources::Find<Graphics::Texture>(L"PlayerAttack_BS");

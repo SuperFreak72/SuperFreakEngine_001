@@ -350,16 +350,16 @@ namespace SF {
 		else {
 			switch (mDirection) {
 			case PlayerScript::eDirection::Left:
-				pos.x -= 2000.0f * Time::DeltaTime();
+				pos.x -= 1000.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Right:
-				pos.x += 2000.0f * Time::DeltaTime();
+				pos.x += 1000.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Up:
-				pos.y -= 2000.0f * Time::DeltaTime();
+				pos.y -= 1000.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Down:
-				pos.y += 2000.0f * Time::DeltaTime();
+				pos.y += 1000.0f * Time::DeltaTime();
 				break;
 			}
 		}
