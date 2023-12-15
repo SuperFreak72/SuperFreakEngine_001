@@ -64,6 +64,8 @@ namespace SF {
 		void Spear();
 		void SpearShot();
 		void SpearShot2();
+		void Bow();
+		void BowCharge();
 		void Death();
 		void UsePendant();
 

@@ -134,6 +134,9 @@ namespace SF {
 		if (Input::GetKey(eKeyCode::Four)) {
 			mWeapon = PlayerScript::eWeapon::Spear;
 		}
+		if (Input::GetKey(eKeyCode::Five)) {
+			mWeapon = PlayerScript::eWeapon::Bow;
+		}
 	}
 
 	void PlayerScript::Walk() {
@@ -208,6 +211,7 @@ namespace SF {
 			Spear();
 			break;
 		case PlayerScript::eWeapon::Bow:
+			Bow();
 			break;
 		}
 	}
@@ -228,6 +232,7 @@ namespace SF {
 				Spear();
 				break;
 			case PlayerScript::eWeapon::Bow:
+				BowCharge();
 				break;
 			}
 		}
@@ -261,16 +266,16 @@ namespace SF {
 		else {
 			switch (mDirection) {
 			case PlayerScript::eDirection::Left:
-				pos.x -= 600.0f * Time::DeltaTime();
+				pos.x -= 400.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Right:
-				pos.x += 600.0f * Time::DeltaTime();
+				pos.x += 400.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Up:
-				pos.y -= 600.0f * Time::DeltaTime();
+				pos.y -= 400.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Down:
-				pos.y += 600.0f * Time::DeltaTime();
+				pos.y += 400.0f * Time::DeltaTime();
 				break;
 			}
 		}
@@ -427,6 +432,18 @@ namespace SF {
 	}
 
 	void PlayerScript::SpearShot2() {
+		if (mAnimator->IsComplete()) {
+			AnimationIdle();
+		}
+	}
+
+	void PlayerScript::Bow() {
+		if (mAnimator->IsComplete()) {
+			AnimationIdle();
+		}
+	}
+
+	void PlayerScript::BowCharge() {
 		if (mAnimator->IsComplete()) {
 			AnimationIdle();
 		}
@@ -626,6 +643,20 @@ namespace SF {
 			}
 			break;
 		case SF::PlayerScript::eWeapon::Bow:
+			switch (mDirection) {
+			case PlayerScript::eDirection::Left:
+				mAnimator->PlayAnimation(L"BowAttackLeft", false);
+				break;
+			case PlayerScript::eDirection::Right:
+				mAnimator->PlayAnimation(L"BowAttackRight", false);
+				break;
+			case PlayerScript::eDirection::Up:
+				mAnimator->PlayAnimation(L"BowAttackUp", false);
+				break;
+			case PlayerScript::eDirection::Down:
+				mAnimator->PlayAnimation(L"BowAttackDown", false);
+				break;
+			}
 			break;
 		}
 	}
@@ -694,6 +725,20 @@ namespace SF {
 			}
 			break;
 		case SF::PlayerScript::eWeapon::Bow:
+			switch (mDirection) {
+			case PlayerScript::eDirection::Left:
+				mAnimator->PlayAnimation(L"BowAttack2Left", false);
+				break;
+			case PlayerScript::eDirection::Right:
+				mAnimator->PlayAnimation(L"BowAttack2Right", false);
+				break;
+			case PlayerScript::eDirection::Up:
+				mAnimator->PlayAnimation(L"BowAttack2Up", false);
+				break;
+			case PlayerScript::eDirection::Down:
+				mAnimator->PlayAnimation(L"BowAttack2Down", false);
+				break;
+			}
 			break;
 		}
 	}
