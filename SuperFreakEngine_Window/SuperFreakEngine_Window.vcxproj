@@ -23,6 +23,7 @@
     <ClInclude Include="SF_CrossroadScene.h" />
     <ClInclude Include="SF_DungeonScene.h" />
     <ClInclude Include="SF_HomeScene.h" />
+    <ClInclude Include="SF_LoadingScene.h" />
     <ClInclude Include="SF_LoadResources.h" />
     <ClInclude Include="SF_LoadScene.h" />
     <ClInclude Include="SF_Player.h" />
@@ -36,6 +37,7 @@
     <ClCompile Include="SF_CrossroadScene.cpp" />
     <ClCompile Include="SF_DungeonScene.cpp" />
     <ClCompile Include="SF_HomeScene.cpp" />
+    <ClCompile Include="SF_LoadingScene.cpp" />
     <ClCompile Include="SF_Player.cpp" />
     <ClCompile Include="SF_PlayScene.cpp" />
     <ClCompile Include="SF_TextObject.cpp" />
