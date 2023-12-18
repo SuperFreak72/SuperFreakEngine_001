@@ -17,6 +17,7 @@ namespace SF::enums {
 		BackGround,
 		BackObject,
 		Player,
+		Monster,
 		Particle,
 		Max = 16,
 	};

@@ -9,6 +9,7 @@ namespace SF {
 		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		, mSize(Vector2::One)
+		, mAlpha(255)
 	{}
 	SpriteRenderer::~SpriteRenderer() { }
 
@@ -37,7 +38,7 @@ namespace SF {
 				func.BlendOp = AC_SRC_OVER;
 				func.BlendFlags = 0;
 				func.AlphaFormat = AC_SRC_ALPHA;
-				func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
+				func.SourceConstantAlpha = mAlpha; // 0(transparent) ~ 255(Opaque)
 
 				AlphaBlend(hdc
 					, pos.x

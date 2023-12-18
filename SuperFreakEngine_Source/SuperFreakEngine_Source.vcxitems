@@ -44,6 +44,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Texture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Time.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_TitleScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Transform.h" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +75,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Texture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Time.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_TitleScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Transform.cpp" />
   </ItemGroup>
 </Project>

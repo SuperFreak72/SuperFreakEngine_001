@@ -20,9 +20,11 @@ namespace SF {
 		void SetSize(math::Vector2 size) {
 			mSize = size;
 		}
+		void SetAlpha(UINT value) { mAlpha = value; }
 	private:
 		Graphics::Texture* mTexture;
 		math::Vector2 mSize;
+		UINT mAlpha;
 	};
 }
 

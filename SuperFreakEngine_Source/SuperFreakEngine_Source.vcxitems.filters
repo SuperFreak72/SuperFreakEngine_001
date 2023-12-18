@@ -85,6 +85,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Object.cpp">
       <Filter>Basic</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_TitleScript.cpp">
+      <Filter>Component\Scripts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h">
@@ -179,6 +182,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_SpriteRenderer.h">
       <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_TitleScript.h">
+      <Filter>Component\Scripts</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
