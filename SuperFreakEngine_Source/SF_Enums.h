@@ -16,9 +16,12 @@ namespace SF::enums {
 		None,
 		BackGround,
 		BackObject,
+		BackUI,
 		Player,
 		Monster,
+		UnderUI,
 		Particle,
+		UI,
 		Max = 16,
 	};
 

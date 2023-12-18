@@ -8,9 +8,8 @@ namespace SF {
 
 	void LoadScenes() {
 		SceneManager::CreateScene<TitleScene>(L"TitleScene");
-		//SceneManager::CreateScene<PlayScene>(L"PlayScene");
+		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 
-		//SceneManager::LoadScene(L"PlayScene");
 		SceneManager::LoadScene(L"TitleScene");
 	}
 }

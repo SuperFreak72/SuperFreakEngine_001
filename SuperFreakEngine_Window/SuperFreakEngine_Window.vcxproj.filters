@@ -27,6 +27,7 @@
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="SF_BackGround.h" />
+    <ClInclude Include="SF_TextObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SF_Player.cpp" />
@@ -49,6 +50,7 @@
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="SF_BackGround.cpp" />
+    <ClCompile Include="SF_TextObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">

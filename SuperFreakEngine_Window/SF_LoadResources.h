@@ -8,7 +8,9 @@ namespace SF {
 		Resources::Load<Graphics::Texture>(L"LeftWall", L"..\\Resources\\Title_Wall_Left_319x370.bmp");
 		Resources::Load<Graphics::Texture>(L"RightWall", L"..\\Resources\\Title_Wall_Right_319x370.bmp");
 		Resources::Load<Graphics::Texture>(L"Logo", L"..\\Resources\\Title_Logo_Alpha.bmp");
-		Resources::Load<Graphics::Texture>(L"Light", L"..\\Resources\\Title_LightParticle.png");
+		Resources::Load<Graphics::Texture>(L"UI_SelectL", L"..\\Resources\\UI_SelectL_Alpha.bmp");
+		Resources::Load<Graphics::Texture>(L"UI_SelectR", L"..\\Resources\\UI_SelectR_Alpha.bmp");
+		
 		
 		
 		Resources::Load<Graphics::Texture>(L"BG", L"..\\Resources\\Village_Background_Alpha.bmp");

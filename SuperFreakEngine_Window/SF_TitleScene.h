@@ -5,6 +5,13 @@
 namespace SF {
 	class TitleScene : public Scene {
 	public:
+		enum class eMenu {
+			NewGame,
+			Option,
+			Exit,
+		};
+
+
 		TitleScene();
 		~TitleScene();
 		void Initialize() override;
@@ -17,17 +24,22 @@ namespace SF {
 	private:
 		void LoadAnimationBackBubble(Animator* value);
 		void LoadAnimationFrontBubble(Animator* value);
-		void AnimationOpenWall();
 	private:
 		class BackGround* backBubble;
 		class BackGround* frontBubble;
 		class BackGround* leftWall;
 		class BackGround* rightWall;
 		class BackGround* logo;
-		class BackGround* light;
-		bool mb_openWall = false;
+		class BackGround* mSelectLeft;
+		class BackGround* mSelectRight;
+		bool mb_openWall;
+		bool mb_chooseButton;
 		float mTime;
 		float mDoorSpeed;
+		eMenu mMenu;
+		class TextObject* mNewGame;
+		class TextObject* mOption;
+		class TextObject* mExit;
 	};
 }
 
