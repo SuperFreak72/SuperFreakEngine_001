@@ -6,9 +6,9 @@ namespace SF {
 	using namespace SF::math;
 	class Camera : public Component{
 	public:
-		 Vector2 CaluatePosition(Vector2 pos) {
-			 return pos;
-		};
+		Vector2 CaluatePosition(Vector2 pos) { return pos - mDistance; };
+		Vector2 CaluateTilePosition(Vector2 pos) { return pos + mDistance; };
+
 
 		Camera();
 		~Camera();

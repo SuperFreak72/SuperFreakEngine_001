@@ -14,6 +14,7 @@
 #include "SF_Renderer.h"
 #include "SF_Animator.h"
 #include "tchar.h"
+#include "SF_Rigidbody.h"
 
 namespace SF {
 	TitleScene::TitleScene()
@@ -32,6 +33,17 @@ namespace SF {
 	TitleScene::~TitleScene() {}
 	
 	void TitleScene::Initialize() {
+		mSelectMenuDirectionL[0] = Vector2(830.0f, 590.0f);
+		mSelectMenuDirectionL[1] = Vector2(587.0f, 680.0f);
+		mSelectMenuDirectionL[2] = Vector2(858.0f, 760.0f);
+		mSelectMenuDirectionL[3] = Vector2(858.0f, 840.0f);
+
+		mSelectMenuDirectionR[0] = Vector2(1027.0f, 590.0f);
+		mSelectMenuDirectionR[1] = Vector2(1265.0f, 680.0f);
+		mSelectMenuDirectionR[2] = Vector2(1006.0f, 760.0f);
+		mSelectMenuDirectionR[3] = Vector2(1006.0f, 840.0f);
+
+
 		backBubble = Object::Instantiate<BackGround> (enums::eLayerType::BackGround);
 		frontBubble = Object::Instantiate<BackGround>(enums::eLayerType::BackObject);
 		mSelectLeft = Object::Instantiate<BackGround>(enums::eLayerType::BackUI);
@@ -39,8 +51,6 @@ namespace SF {
 		leftWall = Object::Instantiate<BackGround>(enums::eLayerType::Player);
 		rightWall = Object::Instantiate<BackGround>(enums::eLayerType::Player);
 		logo = Object::Instantiate<BackGround>(enums::eLayerType::Particle);
-
-
 		
 		SpriteRenderer* srLeft = leftWall->AddComponent<SpriteRenderer>();
 		SpriteRenderer* srRight = rightWall->AddComponent<SpriteRenderer>();
@@ -53,6 +63,9 @@ namespace SF {
 		Graphics::Texture* LogoTex = Resources::Find<Graphics::Texture>(L"Logo");
 		Graphics::Texture* SelectL = Resources::Find<Graphics::Texture>(L"UI_SelectL");
 		Graphics::Texture* SelectR = Resources::Find<Graphics::Texture>(L"UI_SelectR");
+
+		leftWall->AddComponent<Rigidbody>();
+		rightWall->AddComponent<Rigidbody>();
 
 		srLeft->SetTexture(LWall);
 		srRight->SetTexture(RWall);
@@ -73,8 +86,8 @@ namespace SF {
 		leftWall->GetComponent<Transform>()->SetPosition(Vector2(0.0f, -30.0f));
 		rightWall->GetComponent<Transform>()->SetPosition(Vector2(964.0f, -30.0f));
 		logo->GetComponent<Transform>()->SetPosition(Vector2(756.0f, 80.0f));
-		mSelectLeft->GetComponent<Transform>()->SetPosition(Vector2(830.0f, 590.0f));
-		mSelectRight->GetComponent<Transform>()->SetPosition(Vector2(1035.0f, 590.0f));
+		mSelectLeft->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionL[0]);
+		mSelectRight->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionR[0]);
 		srLeft->SetSize(Vector2(3.0f, 3.0f));
 		srRight->SetSize(Vector2(3.0f, 3.0f));
 		srLogo->SetSize(Vector2(0.12f, 0.12f));
@@ -100,15 +113,44 @@ namespace SF {
 			Transform* trRight = rightWall->GetComponent<Transform>();
 			Vector2 LwallPos = trLeft->GetPosition();
 			Vector2 RwallPos = trRight->GetPosition();
+			Rigidbody* rbLeft = leftWall->GetComponent<Rigidbody>();
+			Rigidbody* rbRight = rightWall->GetComponent<Rigidbody>();
 
 			if (mTime < 0.5f) {
 				LwallPos.x -= mDoorSpeed * Time::DeltaTime();
 				RwallPos.x += mDoorSpeed * Time::DeltaTime();
 				trLeft->SetPosition(LwallPos);
 				trRight->SetPosition(RwallPos);
+				//rbLeft->AddForce(Vector2(-mDoorSpeed, 0.0f));
+				//rbRight->AddForce(Vector2(mDoorSpeed, 0.0f));
+			}
+			else {
+				if (LwallPos.x < -800.0f) {
+					LwallPos.x = -800.0f;
+					RwallPos.x = 1760.0f;
+					trLeft->SetPosition(LwallPos);
+					trRight->SetPosition(RwallPos);
+				}
+
+				if (Input::GetKeyDown(eKeyCode::W))
+					SelectMenu(-1);
+				if (Input::GetKeyDown(eKeyCode::S))
+					SelectMenu(+1);
+				if (Input::GetKeyUp(eKeyCode::J)) {
+					switch (mMenu) {
+					case eMenu::NewGame:
+						SceneManager::LoadScene(L"PlayScene");
+						break;
+					case eMenu::LoadGame:
+						break;
+					case eMenu::Option:
+						break;
+					case eMenu::Exit:
+						break;
+					}
+				}
 			}
 		}
-
 		Scene::Update();
 	}
 
@@ -134,7 +176,7 @@ namespace SF {
 			DeleteObject(hFont);
 		}
 		else {
-			wchar_t tContinue[50] = L"계속하기";
+			wchar_t tContinue[50] = L"새  게임";
 			wchar_t tLoad[100] = L"게임 불러오기 / 새로운 게임 / 새 게임 플러스";
 			wchar_t tOption[50] = L"옵션";
 			wchar_t tExit[50] = L"종료";
@@ -167,5 +209,54 @@ namespace SF {
 			Vector2(0.0f, 0.0f), Vector2(640.0f, 360.0f), Vector2::Zero, 16, 0.09f);
 
 		value->PlayAnimation(L"FrontBubble", true);
+	}
+	void TitleScene::SelectMenu(int value) {
+		if (value == -1 && mMenu == eMenu::NewGame)
+			return;
+		else if (value == 1 && mMenu == eMenu::Exit)
+			return;
+		else if (value == -1) {
+			switch (mMenu) {
+			case eMenu::NewGame:
+				break;
+			case eMenu::LoadGame:
+				mSelectLeft->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionL[0]);
+				mSelectRight->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionR[0]);
+				mMenu = eMenu::NewGame;
+				break;
+			case eMenu::Option:
+				mSelectLeft->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionL[1]);
+				mSelectRight->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionR[1]);
+				mMenu = eMenu::LoadGame;
+				break;
+			case eMenu::Exit:
+				mSelectLeft->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionL[2]);
+				mSelectRight->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionR[2]);
+				mMenu = eMenu::Option;
+				break;
+			}
+		}
+		else {
+			switch (mMenu) {
+			case eMenu::NewGame:
+				mSelectLeft->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionL[1]);
+				mSelectRight->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionR[1]);
+				mMenu = eMenu::LoadGame;
+				break;
+			case eMenu::LoadGame:
+				mSelectLeft->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionL[2]);
+				mSelectRight->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionR[2]);
+				mMenu = eMenu::Option;
+				break;
+			case eMenu::Option:
+				mSelectLeft->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionL[3]);
+				mSelectRight->GetComponent<Transform>()->SetPosition(mSelectMenuDirectionR[3]);
+				mMenu = eMenu::Exit;
+				break;
+			case eMenu::Exit:
+				break;
+			}
+		}
+		return;
 	}
 }

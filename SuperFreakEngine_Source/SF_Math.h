@@ -43,6 +43,11 @@ namespace SF::math {
 			this->y = y;
 		}
 
+		Vector2 operator-()
+		{
+			return Vector2(-x, -y);
+		}
+
 		Vector2 operator+ (Vector2 value) {
 			return Vector2(x + value.x, y + value.y);
 		}
@@ -66,6 +71,11 @@ namespace SF::math {
 
 		Vector2 operator*(Vector2 v) {
 			return Vector2(x * v.x, y * v.y);
+		}
+
+		bool operator==(Vector2 v)
+		{
+			return (x == v.x) && (y == v.y);
 		}
 		
 		void clear() {

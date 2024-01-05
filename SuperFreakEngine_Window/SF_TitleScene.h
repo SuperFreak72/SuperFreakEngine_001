@@ -7,6 +7,7 @@ namespace SF {
 	public:
 		enum class eMenu {
 			NewGame,
+			LoadGame,
 			Option,
 			Exit,
 		};
@@ -24,6 +25,7 @@ namespace SF {
 	private:
 		void LoadAnimationBackBubble(Animator* value);
 		void LoadAnimationFrontBubble(Animator* value);
+		void SelectMenu(int value);
 	private:
 		class BackGround* backBubble;
 		class BackGround* frontBubble;
@@ -36,10 +38,10 @@ namespace SF {
 		bool mb_chooseButton;
 		float mTime;
 		float mDoorSpeed;
+
 		eMenu mMenu;
-		class TextObject* mNewGame;
-		class TextObject* mOption;
-		class TextObject* mExit;
+		class Vector2 mSelectMenuDirectionL[4];
+		class Vector2 mSelectMenuDirectionR[4];
 	};
 }
 

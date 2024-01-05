@@ -147,25 +147,25 @@ namespace SF {
 		{
 			mDirection = PlayerScript::eDirection::Right;
 			mFocusDirection = PlayerScript::eDirection::Right;
-			pos.x += 400.0f * Time::DeltaTime();
+			pos.x += 600.0f * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::A))
 		{
 			mDirection = PlayerScript::eDirection::Left; 
 			mFocusDirection = PlayerScript::eDirection::Left;
-			pos.x -= 400.0f * Time::DeltaTime();
+			pos.x -= 600.0f * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::W))
 		{
 			mDirection = PlayerScript::eDirection::Up;
 			mFocusDirection = PlayerScript::eDirection::Up;
-			pos.y -= 400.0f * Time::DeltaTime();
+			pos.y -= 600.0f * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::S))
 		{
 			mDirection = PlayerScript::eDirection::Down;
 			mFocusDirection = PlayerScript::eDirection::Down;
-			pos.y += 400.0f * Time::DeltaTime();
+			pos.y += 600.0f * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::Space)) //Roll
 		{
@@ -266,16 +266,16 @@ namespace SF {
 		else {
 			switch (mDirection) {
 			case PlayerScript::eDirection::Left:
-				pos.x -= 400.0f * Time::DeltaTime();
+				pos.x -= 800.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Right:
-				pos.x += 400.0f * Time::DeltaTime();
+				pos.x += 800.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Up:
-				pos.y -= 400.0f * Time::DeltaTime();
+				pos.y -= 800.0f * Time::DeltaTime();
 				break;
 			case PlayerScript::eDirection::Down:
-				pos.y += 400.0f * Time::DeltaTime();
+				pos.y += 800.0f * Time::DeltaTime();
 				break;
 			}
 		}
@@ -310,27 +310,27 @@ namespace SF {
 		{
 			mb_Shield = true;
 			mDirection = PlayerScript::eDirection::Right;
-			pos.x += 200.0f * Time::DeltaTime();
+			pos.x += 300.0f * Time::DeltaTime();
 
 		}
 		if (Input::GetKey(eKeyCode::A))
 		{
 			mb_Shield = true;
 			mDirection = PlayerScript::eDirection::Left;
-			pos.x -= 200.0f * Time::DeltaTime();
+			pos.x -= 300.0f * Time::DeltaTime();
 
 		}
 		if (Input::GetKey(eKeyCode::W))
 		{
 			mb_Shield = true;
 			mDirection = PlayerScript::eDirection::Up;
-			pos.y -= 200.0f * Time::DeltaTime();
+			pos.y -= 300.0f * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::S))
 		{
 			mb_Shield = true;
 			mDirection = PlayerScript::eDirection::Down;
-			pos.y += 200.0f * Time::DeltaTime();
+			pos.y += 300.0f * Time::DeltaTime();
 		}
 		if (!Input::GetKey(eKeyCode::K)) {
 			AnimationIdle();
@@ -846,6 +846,5 @@ namespace SF {
 			}
 		}
 	}
-
 
 }

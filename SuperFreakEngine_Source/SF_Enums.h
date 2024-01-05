@@ -5,6 +5,7 @@ namespace SF::enums {
 	enum class eComponentType {
 		Transform,
 		Collider,
+		Rigidbody,
 		Script,
 		SpriteRenderer,
 		Animator,
@@ -17,12 +18,13 @@ namespace SF::enums {
 		BackGround,
 		BackObject,
 		BackUI,
-		Player,
 		Monster,
+		Player,
 		UnderUI,
 		Particle,
 		UI,
 		Max = 16,
+		End,
 	};
 
 	enum class eResourceType {

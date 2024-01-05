@@ -1,5 +1,6 @@
 #pragma once
 #include "..\\SuperFreakEngine_Source\\SF_Scene.h"
+#include "..\\SuperFreakEngine_Source\\SF_Animator.h"
 
 namespace SF {
 	class CrossroadScene : public Scene {
@@ -16,7 +17,11 @@ namespace SF {
 		void OnExit()  override;
 
 	private:
-		class Player* bg;
+		class BackGround* bg;
+		class Player* player;
+		class GameObject* camera;
+		class Animator* mAnimator;
+		class Camera* cameraComp;
 	};
 }
 

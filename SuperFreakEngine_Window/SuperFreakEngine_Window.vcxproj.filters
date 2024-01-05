@@ -37,6 +37,12 @@
     <ClInclude Include="SF_LoadingScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="SF_VideoScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SF_Monster.h">
+      <Filter>SceneObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SF_HomeScene.cpp">
@@ -68,6 +74,12 @@
     </ClCompile>
     <ClCompile Include="SF_LoadingScene.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SF_VideoScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SF_Monster.cpp">
+      <Filter>SceneObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

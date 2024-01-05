@@ -33,11 +33,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Layer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Math.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_MonScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Object.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_PlayerScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Renderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Resources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Rigidbody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Scene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Script.h" />
@@ -64,11 +66,13 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Layer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Math.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_MonScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Object.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_PlayerScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Renderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Resource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Resources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Rigidbody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Scene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Script.cpp" />

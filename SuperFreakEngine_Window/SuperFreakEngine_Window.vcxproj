@@ -26,10 +26,12 @@
     <ClInclude Include="SF_LoadingScene.h" />
     <ClInclude Include="SF_LoadResources.h" />
     <ClInclude Include="SF_LoadScene.h" />
+    <ClInclude Include="SF_Monster.h" />
     <ClInclude Include="SF_Player.h" />
     <ClInclude Include="SF_PlayScene.h" />
     <ClInclude Include="SF_TextObject.h" />
     <ClInclude Include="SF_TitleScene.h" />
+    <ClInclude Include="SF_VideoScene.h" />
     <ClInclude Include="SF_VillageScene.h" />
   </ItemGroup>
   <ItemGroup>
@@ -38,10 +40,12 @@
     <ClCompile Include="SF_DungeonScene.cpp" />
     <ClCompile Include="SF_HomeScene.cpp" />
     <ClCompile Include="SF_LoadingScene.cpp" />
+    <ClCompile Include="SF_Monster.cpp" />
     <ClCompile Include="SF_Player.cpp" />
     <ClCompile Include="SF_PlayScene.cpp" />
     <ClCompile Include="SF_TextObject.cpp" />
     <ClCompile Include="SF_TitleScene.cpp" />
+    <ClCompile Include="SF_VideoScene.cpp" />
     <ClCompile Include="SF_VillageScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

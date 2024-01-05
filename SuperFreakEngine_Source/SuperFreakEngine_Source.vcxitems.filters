@@ -88,6 +88,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_TitleScript.cpp">
       <Filter>Component\Scripts</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_Rigidbody.cpp">
+      <Filter>Component\RIgidbody</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_MonScript.cpp">
+      <Filter>Component\Scripts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h">
@@ -186,6 +192,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_TitleScript.h">
       <Filter>Component\Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_Rigidbody.h">
+      <Filter>Component\RIgidbody</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_MonScript.h">
+      <Filter>Component\Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -235,6 +247,9 @@
     </Filter>
     <Filter Include="Component\Collision\CircleCollider2D">
       <UniqueIdentifier>{fb68eb23-709c-4b31-8ce7-ab40aa04ca77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\RIgidbody">
+      <UniqueIdentifier>{642eec2c-c0c6-4ed8-816d-b2b368d1aa3d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

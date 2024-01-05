@@ -24,5 +24,6 @@ namespace SF {
 		
 		
 		
+		Resources::Load<Graphics::Texture>(L"Entrance", L"..\\Resources\\DungeonsEntrance_Alpha.bmp");
 	}
 }

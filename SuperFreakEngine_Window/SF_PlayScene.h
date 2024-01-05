@@ -19,25 +19,12 @@ namespace SF {
 
 		
 	private:
-		void AnimationLoad();
-		void LoadAnimationIdle(Animator* playerAnimator);
-		void LoadAnimationWalk(Animator* playerAnimator);
-		void LoadAnimationRoll(Animator* playerAnimator);
-		void LoadAniamtionSwim(Animator* playerAnimator);
-		void LoadAnimationGrassIdle(Animator* playerAnimator);
-		void LoadAnimationGrassWalk(Animator* playerAnimator);
-		void LoadAnimationDeath(Animator* playerAnimator);
-		void LoadAnimationPendant(Animator* playerAnimator);
-		void LoadAnimationShortSword(Animator* playerAnimator);
-		void LoadAnimationShield(Animator* playerAnimator);
-		void LoadAnimationGloves(Animator* playerAnimator);
-		void LoadAnimationBigSword(Animator* playerAnimator);
-		void LoadAnimationSpear(Animator* playerAnimator);
-		void LoadAnimationBow(Animator* playerAnimator);
+
 	private:
-		class Player* bg;
+		class BackGround* bg;
 		class Player* player;
-		class Animator* mAnimator;
+		class Monster* monster;
+		class GameObject* camera;
 	};
 }
 
