@@ -94,6 +94,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_MonScript.cpp">
       <Filter>Component\Scripts</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_WeaponCollision.cpp">
+      <Filter>Component\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h">
@@ -197,6 +200,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_MonScript.h">
       <Filter>Component\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_WeaponCollision.h">
+      <Filter>Component\Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

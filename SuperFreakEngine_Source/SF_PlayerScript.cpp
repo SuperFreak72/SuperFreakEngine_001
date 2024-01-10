@@ -7,6 +7,7 @@
 #include "SF_Object.h"
 #include "SF_Resources.h"
 
+
 namespace SF {
 	PlayerScript::PlayerScript()
 		: mState(PlayerScript::eState::Idle)
@@ -16,6 +17,7 @@ namespace SF {
 		, mAnimator(nullptr)
 		, mb_Complete(true)
 		, mb_Shield(false)
+		, mb_Attack(false)
 	{}
 	PlayerScript::~PlayerScript() {}
 	
@@ -63,7 +65,7 @@ namespace SF {
 	void PlayerScript::Render(HDC hdc) {}
 
 	void PlayerScript::OnCollisionEnter(Collider* other) {
-		int a = 0;
+		
 	}
 
 	void PlayerScript::OnCollisionStay(Collider* other)
@@ -285,6 +287,12 @@ namespace SF {
 
 	void PlayerScript::ShortSword() //Attack Call
 	{ 
+		if (mAnimator->GetFrame() == 2) {
+			mb_Attack = true;
+		}
+		if (mAnimator->GetFrame() == 13) {
+			mb_Attack = false;
+		}
 		if (mAnimator->IsComplete())
 			AnimationIdle();
 	}
@@ -569,6 +577,7 @@ namespace SF {
 			switch (mDirection) {
 			case SF::PlayerScript::eDirection::Left:
 				mAnimator->PlayAnimation(L"sSwordAttackLeft", false);
+
 				break;
 			case SF::PlayerScript::eDirection::Right:
 				mAnimator->PlayAnimation(L"sSwordAttackRight", false);

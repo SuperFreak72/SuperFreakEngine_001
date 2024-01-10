@@ -32,12 +32,15 @@ namespace SF {
 			Events* events
 				= FindEvents(mActiveAnimation->GetName());
 
+			mFrame = mActiveAnimation->GetIndex();
 			if (mActiveAnimation->IsComplete() == true) {
 				if (events)
 					events->completeEvent();
 
 				if (mb_Loop == true)
 					mActiveAnimation->Reset();
+
+				mFrame = -1;
 			}
 		}
 	}
@@ -106,8 +109,6 @@ namespace SF {
 			, offset, fileCount, duration);
 	}
 
-	
-
 	Animation* Animator::FindAnimation(const std::wstring& name) {
 		auto iter = mAnimations.find(name);
 		if (iter == mAnimations.end())
@@ -115,11 +116,11 @@ namespace SF {
 
 		return iter->second;
 	}
+
 	void Animator::PlayAnimation(const std::wstring& name, bool loop) {
 		Animation* animation = FindAnimation(name);
 		if (animation == nullptr)
 			return;
-
 
 		if (mActiveAnimation) {
 			Events* currentEvents
@@ -128,7 +129,6 @@ namespace SF {
 			if (currentEvents)
 				currentEvents->endEvent();
 		}
-
 
 		Events* nextEvents
 			= FindEvents(animation->GetName());

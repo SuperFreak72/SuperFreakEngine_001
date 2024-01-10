@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SF_AttackDecision.h" />
     <ClInclude Include="SF_BackGround.h" />
     <ClInclude Include="SF_CrossroadScene.h" />
     <ClInclude Include="SF_DungeonScene.h" />
@@ -35,6 +36,7 @@
     <ClInclude Include="SF_VillageScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SF_AttackDecision.cpp" />
     <ClCompile Include="SF_BackGround.cpp" />
     <ClCompile Include="SF_CrossroadScene.cpp" />
     <ClCompile Include="SF_DungeonScene.cpp" />

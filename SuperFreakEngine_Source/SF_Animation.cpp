@@ -107,8 +107,7 @@ namespace SF {
 			graphics.TranslateTransform(-pos.x, -pos.y);
 
 			graphics.DrawImage(mTexture->GetImage()
-				, Gdiplus::Rect
-				(
+				, Gdiplus::Rect (
 					pos.x - (sprite.size.x / 2.0f)
 					, pos.y - (sprite.size.y / 2.0f)
 					, sprite.size.x * scale.x

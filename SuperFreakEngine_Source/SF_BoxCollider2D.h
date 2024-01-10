@@ -12,7 +12,9 @@ namespace SF {
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
+		
 	private:
+
 	};
 }
 

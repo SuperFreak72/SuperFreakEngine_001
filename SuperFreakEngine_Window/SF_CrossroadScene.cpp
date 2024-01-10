@@ -36,6 +36,8 @@ namespace SF{
 		sr->SetTexture(bg);
 		sr->SetSize(Vector2(4.0f, 4.0f));
 
+		
+
 		Scene::Initialize();
 	}
 	void CrossroadScene::Update() {
@@ -52,9 +54,11 @@ namespace SF{
 	}
 
 	void CrossroadScene::OnEnter() {
+		camera = Object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(0.0f, 0.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
 		Renderer::mainCamera = cameraComp;
 		cameraComp->SetTarget(player);
-
+		
 		player->GetComponent<Transform>()->SetPosition(Vector2(2440.0f, 3892.0f));
 		player->GetComponent<Transform>()->SetScale(Vector2(4.0f, 4.0f));
 	}

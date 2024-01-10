@@ -56,12 +56,13 @@ namespace SF {
 
 		bool IsComplete() { return mActiveAnimation->IsComplete(); }
 
+		int GetFrame() { return mFrame; }
 	private:
 		std::map<std::wstring, Animation*> mAnimations;
 		Animation* mActiveAnimation;
 		bool mb_Loop;
-
 		std::map<std::wstring, Events*> mEvents;
+		int mFrame;
 	};
 }
 

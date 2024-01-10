@@ -25,6 +25,7 @@ namespace SF {
 		void LoadAnimationBigSword(Animator* playerAnimator);
 		void LoadAnimationSpear(Animator* playerAnimator);
 		void LoadAnimationBow(Animator* playerAnimator);
+
 	};
 }
 

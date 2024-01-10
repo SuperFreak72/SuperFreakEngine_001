@@ -48,6 +48,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Time.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_TitleScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Transform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_WeaponCollision.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Animation.cpp" />
@@ -81,5 +82,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Time.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_TitleScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_Transform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_WeaponCollision.cpp" />
   </ItemGroup>
 </Project>

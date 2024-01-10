@@ -45,6 +45,8 @@ namespace SF {
 			mAnimator = animator;
 		};
 
+		int GetIndex() { return mIndex; }
+
 	private:
 		class Animator* mAnimator;
 		Graphics::Texture* mTexture;

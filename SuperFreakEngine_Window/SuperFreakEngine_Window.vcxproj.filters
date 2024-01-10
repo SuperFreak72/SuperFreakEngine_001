@@ -43,6 +43,9 @@
     <ClInclude Include="SF_Monster.h">
       <Filter>SceneObject</Filter>
     </ClInclude>
+    <ClInclude Include="SF_AttackDecision.h">
+      <Filter>SceneObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SF_HomeScene.cpp">
@@ -79,6 +82,9 @@
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="SF_Monster.cpp">
+      <Filter>SceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SF_AttackDecision.cpp">
       <Filter>SceneObject</Filter>
     </ClCompile>
   </ItemGroup>

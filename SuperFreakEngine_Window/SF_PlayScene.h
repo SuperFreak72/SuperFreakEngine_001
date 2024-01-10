@@ -19,12 +19,14 @@ namespace SF {
 
 		
 	private:
-
+		void CheckPlayerState();
+		void ChangeCollistionByState();
 	private:
 		class BackGround* bg;
 		class Player* player;
 		class Monster* monster;
 		class GameObject* camera;
+		class AttackDecision* pDecision;
 	};
 }
 

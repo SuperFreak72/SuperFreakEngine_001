@@ -8,10 +8,6 @@
 
 namespace SF {
 	void Monster::Initialize() {
-		BoxCollider2D* monCollider = this->AddComponent<BoxCollider2D>();
-		monCollider->SetOffset(Vector2::Zero);
-		monCollider->SetSize(Vector2(2.0f, 2.0f));
-
 		GameObject::Initialize();
 	}	 
 	

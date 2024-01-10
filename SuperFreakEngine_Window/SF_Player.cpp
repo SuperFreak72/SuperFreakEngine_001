@@ -10,14 +10,11 @@
 
 namespace SF {
 	void Player::Initialize() {
-		BoxCollider2D* collider = this->AddComponent<BoxCollider2D>();
-		collider->SetOffset(Vector2::Zero);
-		collider->SetSize(Vector2(2.0f, 2.0f));
-
 		AnimationLoad();
 		GameObject::Initialize();
 	}
 	void Player::Update() {
+		
 		GameObject::Update();
 	}
 	void Player::LateUpdate() {

@@ -7,6 +7,7 @@
 namespace SF {
 	BoxCollider2D::BoxCollider2D()
 	: Collider(enums::eColliderType::Rect2D) 
+
 	{}
 	
 	BoxCollider2D::~BoxCollider2D() {}
@@ -34,8 +35,8 @@ namespace SF {
 
 		Rectangle(hdc, pos.x + offset.x
 			, pos.y + offset.y
-			, pos.x + offset.x + 64 * GetSize().x
-			, pos.y + offset.y + 64 * GetSize().y);
+			, pos.x + offset.x + GetSize().x
+			, pos.y + offset.y + GetSize().y);
 
 		SelectObject(hdc, oldBrush);
 		SelectObject(hdc, oldPen);
