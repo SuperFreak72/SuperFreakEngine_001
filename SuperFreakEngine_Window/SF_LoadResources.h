@@ -13,7 +13,7 @@ namespace SF {
 		
 		
 		
-		Resources::Load<Graphics::Texture>(L"BG", L"..\\Resources\\Village_Background_Alpha.bmp");
+		Resources::Load<Graphics::Texture>(L"BG", L"..\\Resources\\VillageEnvironment_Alpha.bmp");
 		Resources::Load<Graphics::Texture>(L"PlayerMotion1", L"..\\Resources\\Will_Cycle_Motion_128x128_Alpha.bmp");
 		Resources::Load<Graphics::Texture>(L"PlayerMotion", L"..\\Resources\\Will_Cycle_Motion_128x128_Alpha2.bmp");
 		Resources::Load<Graphics::Texture>(L"PlayerAttack_SS", L"..\\Resources\\Will_Cycle_Attack_Short_Shield_128x128_Alpha.bmp");

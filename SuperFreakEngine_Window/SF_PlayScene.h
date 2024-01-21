@@ -21,12 +21,13 @@ namespace SF {
 	private:
 		void CheckPlayerState();
 		void ChangeCollistionByState();
+		void BuildWallCollider();
 	private:
 		class BackGround* bg;
 		class Player* player;
 		class Monster* monster;
 		class GameObject* camera;
-		class AttackDecision* pDecision;
+		float bgSize;
 	};
 }
 

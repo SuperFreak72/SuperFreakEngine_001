@@ -97,6 +97,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SF_WeaponCollision.cpp">
       <Filter>Component\Collision</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_WallScript.cpp">
+      <Filter>Component\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SF_EnterScript.cpp">
+      <Filter>Component\Scripts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_Component.h">
@@ -203,6 +209,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SF_WeaponCollision.h">
       <Filter>Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_WallScript.h">
+      <Filter>Component\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SF_EnterScript.h">
+      <Filter>Component\Scripts</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

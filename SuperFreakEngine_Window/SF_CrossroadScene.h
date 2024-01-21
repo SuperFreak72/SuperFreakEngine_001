@@ -22,6 +22,8 @@ namespace SF {
 		class GameObject* camera;
 		class Animator* mAnimator;
 		class Camera* cameraComp;
+		float bgSize;
+		
 	};
 }
 

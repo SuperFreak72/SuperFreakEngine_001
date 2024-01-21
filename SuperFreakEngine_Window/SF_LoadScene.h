@@ -16,6 +16,6 @@ namespace SF {
 		
 
 		//SceneManager::LoadScene(L"VideoScene");
-		SceneManager::LoadScene(L"PlayScene");
+		SceneManager::LoadScene(L"TitleScene");
 	}
 }

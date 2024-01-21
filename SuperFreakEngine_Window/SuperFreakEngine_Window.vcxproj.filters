@@ -16,12 +16,6 @@
     <ClInclude Include="SF_CrossroadScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="SF_LoadResources.h">
-      <Filter>LoadManagement</Filter>
-    </ClInclude>
-    <ClInclude Include="SF_LoadScene.h">
-      <Filter>LoadManagement</Filter>
-    </ClInclude>
     <ClInclude Include="SF_TitleScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -45,6 +39,12 @@
     </ClInclude>
     <ClInclude Include="SF_AttackDecision.h">
       <Filter>SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SF_LoadScene.h">
+      <Filter>LoadManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="SF_LoadResources.h">
+      <Filter>LoadManagement</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

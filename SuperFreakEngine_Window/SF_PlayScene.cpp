@@ -10,6 +10,7 @@
 #include "SF_Object.h"
 #include "SF_Resources.h"
 #include "SF_PlayerScript.h"
+#include "SF_WallScript.h"
 #include "SF_MonScript.h"
 #include "SF_Camera.h"
 #include "SF_Renderer.h"
@@ -20,7 +21,8 @@
 #include "SF_WeaponCollision.h"
 
 namespace SF {
-	PlayScene::PlayScene() { }
+	PlayScene::PlayScene()
+	: bgSize(4.0f){ }
 	PlayScene::~PlayScene() { }
 
 	void PlayScene::Initialize() {
@@ -30,8 +32,8 @@ namespace SF {
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		Graphics::Texture* bg = Resources::Find<Graphics::Texture>(L"BG");
 		sr->SetTexture(bg);
-		sr->SetSize(Vector2(4.0f, 4.0f));
-
+		sr->SetSize(Vector2(bgSize, bgSize));
+		
 		//예시 몬스터
 		monster = Object::Instantiate<Monster>(enums::eLayerType::Monster);
 		monster->AddComponent<MonScript>();
@@ -49,16 +51,8 @@ namespace SF {
 		collider->SetOffset(Vector2::Zero);
 		collider->SetSize(Vector2(128.0f, 128.0f));
 
-		//카메라
-		camera = Object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(0.0f, 0.0f));
-		Camera* cameraComp = camera->AddComponent<Camera>();
-		Renderer::mainCamera = cameraComp;
-		cameraComp->SetTarget(player);
+		BuildWallCollider();
 
-		//플레이어 공격판정
-		pDecision = Object::Instantiate<AttackDecision>(enums::eLayerType::Particle);
-		pDecision->SetTarget(player);
-		pDecision->SetActive(false);
 		Scene::Initialize();
 	}
 
@@ -67,7 +61,11 @@ namespace SF {
 		if (pPos.x > 1248.0f && pPos.y < 50.0f && pPos.x < 1488.0f)
 			SceneManager::LoadScene(L"CrossroadScene");
 		
-		CheckPlayerState();
+		
+		if (player->GetComponent<PlayerScript>()->GetAttack()) {
+			AttackDecision* ad = new AttackDecision();
+		}
+		
 		Scene::Update();
 	}
 
@@ -80,13 +78,52 @@ namespace SF {
 	}
 
 	void PlayScene::OnEnter() {
-		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Monster, true);
-	}
-	void PlayScene::OnExit() {
+		//카메라
+		camera = Object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(0.0f, 0.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		Renderer::mainCamera = cameraComp;
+		cameraComp->SetTarget(player);
+
 		
+
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Monster, true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::BackObject, true);
 	}
 
-	void PlayScene::CheckPlayerState() {
+	void PlayScene::OnExit() {
+		player->GetComponent<Transform>()->SetPosition(Vector2(1248.0f, 60.0f));
+	}
+
+	void PlayScene::BuildWallCollider() {
+		BackGround* house1 = Object::Instantiate<BackGround>(enums::eLayerType::BackObject);
+		house1->AddComponent<WallScript>();
+		Transform* trhouse1 = house1->AddComponent<Transform>();
+		trhouse1->SetPosition(Vector2(386.0 * bgSize, 97.0f * bgSize));
+		BoxCollider2D* wallCol1 = house1->AddComponent<BoxCollider2D>();
+		wallCol1->SetSize(Vector2(139.0f * bgSize, 170.0f * bgSize));
+		wallCol1->SetOffset(Vector2::Zero);
+		house1->GetComponent<BoxCollider2D>()->SetName(L"house1");
+
+		BackGround* house2 = Object::Instantiate<BackGround>(enums::eLayerType::BackObject);
+		house2->AddComponent<WallScript>();
+		Transform* trhouse2 = house2->AddComponent<Transform>();
+		trhouse2->SetPosition(Vector2(613.0f * bgSize, 213.0f * bgSize));
+		BoxCollider2D* wallCol2 = house2->AddComponent<BoxCollider2D>();
+		wallCol2->SetSize(Vector2(140.0f * bgSize, 170.0f * bgSize));
+		wallCol2->SetOffset(Vector2(-140.0f * bgSize / 2, -170.0f * bgSize / 2));
+
+		BackGround* house3 = Object::Instantiate<BackGround>(enums::eLayerType::BackObject);
+		house3->AddComponent<WallScript>();
+		Transform* trhouse3 = house3->AddComponent<Transform>();
+		trhouse3->SetPosition(Vector2(696.0f * bgSize, 83.0f * bgSize));
+		BoxCollider2D* wallCol3 = house3->AddComponent<BoxCollider2D>();
+		wallCol3->SetSize(Vector2(224.0f * bgSize, 174.0f * bgSize));
+		wallCol3->SetOffset(Vector2::Zero);
+
+
+	}
+
+	/*void PlayScene::CheckPlayerState() {
 		PlayerScript::eState mbState = player->GetComponent<PlayerScript>()->GetState();
 		BoxCollider2D* collider = player->GetComponent<BoxCollider2D>();
 
@@ -176,5 +213,5 @@ namespace SF {
 		default:
 			assert(false);
 		}
-	}
+	}*/
 }
